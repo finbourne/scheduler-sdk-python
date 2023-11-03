@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.time_trigger import TimeTrigger
+from lusid_scheduler.models.time_trigger import TimeTrigger
 
 # TODO update the JSON string below
 json = "{}"

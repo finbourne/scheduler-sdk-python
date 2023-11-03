@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.trigger import Trigger
+from lusid_scheduler.models.trigger import Trigger
 
 # TODO update the JSON string below
 json = "{}"

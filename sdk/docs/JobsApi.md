@@ -1,4 +1,4 @@
-# finbourne_scheduler.JobsApi
+# lusid_scheduler.JobsApi
 
 All URIs are relative to *https://fbn-ci.lusid.com/scheduler2*
 
@@ -27,13 +27,13 @@ Method | HTTP request | Description
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.create_job_request import CreateJobRequest
-from finbourne_scheduler.models.job_definition import JobDefinition
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.create_job_request import CreateJobRequest
+from lusid_scheduler.models.job_definition import JobDefinition
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -41,7 +41,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -71,7 +71,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     create_job_request = {"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Data loader","author":"Job author","dateCreated":"2019-12-11T00:00:00.0000000+00:00","description":"Load EOD data","imageName":"alpine","imageTag":"latest","ttl":500,"minCpu":"2","maxCpu":"4","minMemory":"0.5Mi","maxMemory":"500Mi","argumentDefinitions":{"SECRET1":{"dataType":"SecureString","required":true,"description":"Database credentials","order":1,"constraints":"None","passedAs":"EnvironmentVariable"}},"commandLineArgumentSeparator":" ","requiredResources":{"lusidApis":["Shrine, IBOR"],"lusidFileSystem":[],"externalCalls":["AWS"]}} # CreateJobRequest | The request to create a new job
 
     try:
@@ -124,12 +124,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -137,7 +137,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -167,7 +167,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     scope = 'scope_example' # str | The scope of the job
     code = 'code_example' # str | The code of the job
 
@@ -222,12 +222,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.resource_list_of_job_history import ResourceListOfJobHistory
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.resource_list_of_job_history import ResourceListOfJobHistory
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -235,7 +235,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -265,7 +265,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     page = 'page_example' # str | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
     sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
     start = 56 # int | This field is obsolete, the value of this field would not be considered. (optional)
@@ -326,11 +326,11 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -338,7 +338,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -368,7 +368,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     run_id = 'run_id_example' # str | The RunId of the job run
 
     try:
@@ -421,12 +421,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.job_run_result import JobRunResult
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.job_run_result import JobRunResult
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -434,7 +434,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -464,7 +464,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     run_id = 'run_id_example' # str | The unique ID of the run
 
     try:
@@ -517,12 +517,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -530,7 +530,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -560,7 +560,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     scope = 'scope_example' # str | The scope of the job
     code = 'code_example' # str | The code of the job
 
@@ -615,12 +615,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.resource_list_of_job_definition import ResourceListOfJobDefinition
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.resource_list_of_job_definition import ResourceListOfJobDefinition
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -628,7 +628,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -658,7 +658,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     page = 'page_example' # str | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
     sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
     start = 56 # int | When paginating, skip this number of results. (optional)
@@ -719,13 +719,13 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.start_job_request import StartJobRequest
-from finbourne_scheduler.models.start_job_response import StartJobResponse
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.start_job_request import StartJobRequest
+from lusid_scheduler.models.start_job_response import StartJobResponse
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -733,7 +733,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -763,7 +763,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     scope = 'scope_example' # str | The scope of the job
     code = 'code_example' # str | The code of the job
     start_job_request = {"arguments":{"ExchangeCode":"XLON"},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["Team A"]}],"useAsAuth":"job auth userId"} # StartJobRequest | The request for starting job
@@ -820,13 +820,13 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.job_definition import JobDefinition
-from finbourne_scheduler.models.update_job_request import UpdateJobRequest
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.job_definition import JobDefinition
+from lusid_scheduler.models.update_job_request import UpdateJobRequest
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -834,7 +834,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -864,7 +864,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.JobsApi)
+    api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
     scope = 'scope_example' # str | 
     code = 'code_example' # str | 
     update_job_request = {"name":"Updated job name","author":"Job author","description":"Updated job description","imageName":"Updated image name","imageTag":"Updated image tag","ttl":250,"minCpu":"2","maxCpu":"4","minMemory":"0.5Mi","maxMemory":"500Mi","argumentDefinitions":{"UpdatedSecret":{"dataType":"SecureString","required":true,"description":"Database credentials","order":1,"constraints":"None","passedAs":"EnvironmentVariable"},"UpdatedArgument":{"dataType":"String","required":true,"description":"Command line argument","order":2,"constraints":"None","passedAs":"CommandLine","defaultValue":"Update default value"}},"commandLineArgumentSeparator":" ","requiredResources":{"lusidApis":["Shrine, IBOR"],"lusidFileSystem":[],"externalCalls":["AWS"]}} # UpdateJobRequest | 

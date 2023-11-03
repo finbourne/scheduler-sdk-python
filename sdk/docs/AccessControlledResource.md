@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.access_controlled_resource import AccessControlledResource
+from lusid_scheduler.models.access_controlled_resource import AccessControlledResource
 
 # TODO update the JSON string below
 json = "{}"

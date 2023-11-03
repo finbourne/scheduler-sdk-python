@@ -1,4 +1,4 @@
-# finbourne_scheduler.ImagesApi
+# lusid_scheduler.ImagesApi
 
 All URIs are relative to *https://fbn-ci.lusid.com/scheduler2*
 
@@ -24,11 +24,11 @@ Method | HTTP request | Description
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -36,7 +36,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -66,7 +66,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.ImagesApi)
+    api_instance = api_client_factory.build(lusid_scheduler.ImagesApi)
     name = 'name_example' # str | The name and tag of the image. Format \"ExampleImageName:0.1\"
 
     try:
@@ -120,11 +120,11 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -132,7 +132,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -162,7 +162,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.ImagesApi)
+    api_instance = api_client_factory.build(lusid_scheduler.ImagesApi)
     name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest\"
 
     try:
@@ -215,12 +215,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.image import Image
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.image import Image
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -228,7 +228,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -258,7 +258,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.ImagesApi)
+    api_instance = api_client_factory.build(lusid_scheduler.ImagesApi)
     name = 'name_example' # str | The name and tag of a Docker image. Format \"ExampleImageName:latest\"
 
     try:
@@ -311,12 +311,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.resource_list_of_image_summary import ResourceListOfImageSummary
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.resource_list_of_image_summary import ResourceListOfImageSummary
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -324,7 +324,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -354,7 +354,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.ImagesApi)
+    api_instance = api_client_factory.build(lusid_scheduler.ImagesApi)
     name = 'name_example' # str | The name of the Repository
     page = 'page_example' # str | The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
     sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
@@ -417,12 +417,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.resource_list_of_repository import ResourceListOfRepository
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.resource_list_of_repository import ResourceListOfRepository
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -430,7 +430,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -460,7 +460,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.ImagesApi)
+    api_instance = api_client_factory.build(lusid_scheduler.ImagesApi)
     page = 'page_example' # str | The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
     sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
     start = 56 # int | When paginating, skip this number of results. (optional)
@@ -523,13 +523,13 @@ Every image must have at least one tag. Note: your image will not be available u
 from __future__ import print_function
 import time
 import os
-import finbourne_scheduler
-from finbourne_scheduler.rest import ApiException
-from finbourne_scheduler.models.upload_image_instructions import UploadImageInstructions
-from finbourne_scheduler.models.upload_image_request import UploadImageRequest
+import lusid_scheduler
+from lusid_scheduler.rest import ApiException
+from lusid_scheduler.models.upload_image_instructions import UploadImageInstructions
+from lusid_scheduler.models.upload_image_request import UploadImageRequest
 from pprint import pprint
 
-from finbourne_scheduler import (
+from lusid_scheduler import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -537,7 +537,7 @@ from finbourne_scheduler import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_scheduler ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -567,7 +567,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_scheduler.ImagesApi)
+    api_instance = api_client_factory.build(lusid_scheduler.ImagesApi)
     upload_image_request = {"imageName":"example-image-name:0.0.1"} # UploadImageRequest | Request to upload image
 
     try:

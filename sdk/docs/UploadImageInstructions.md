@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.upload_image_instructions import UploadImageInstructions
+from lusid_scheduler.models.upload_image_instructions import UploadImageInstructions
 
 # TODO update the JSON string below
 json = "{}"

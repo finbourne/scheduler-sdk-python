@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.scan_summary import ScanSummary
+from lusid_scheduler.models.scan_summary import ScanSummary
 
 # TODO update the JSON string below
 json = "{}"

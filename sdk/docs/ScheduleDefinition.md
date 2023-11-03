@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.schedule_definition import ScheduleDefinition
+from lusid_scheduler.models.schedule_definition import ScheduleDefinition
 
 # TODO update the JSON string below
 json = "{}"

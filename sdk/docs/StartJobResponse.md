@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.start_job_response import StartJobResponse
+from lusid_scheduler.models.start_job_response import StartJobResponse
 
 # TODO update the JSON string below
 json = "{}"

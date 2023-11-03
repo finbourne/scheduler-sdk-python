@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.start_schedule_response import StartScheduleResponse
+from lusid_scheduler.models.start_schedule_response import StartScheduleResponse
 
 # TODO update the JSON string below
 json = "{}"

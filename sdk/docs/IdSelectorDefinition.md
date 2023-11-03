@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.id_selector_definition import IdSelectorDefinition
+from lusid_scheduler.models.id_selector_definition import IdSelectorDefinition
 
 # TODO update the JSON string below
 json = "{}"

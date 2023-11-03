@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.argument_definition import ArgumentDefinition
+from lusid_scheduler.models.argument_definition import ArgumentDefinition
 
 # TODO update the JSON string below
 json = "{}"

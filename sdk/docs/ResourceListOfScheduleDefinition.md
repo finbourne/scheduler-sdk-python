@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
+from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 
 # TODO update the JSON string below
 json = "{}"

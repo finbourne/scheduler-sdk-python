@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.repository import Repository
+from lusid_scheduler.models.repository import Repository
 
 # TODO update the JSON string below
 json = "{}"

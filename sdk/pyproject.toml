@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "finbourne-scheduler-sdk"
+name = "lusid-scheduler-sdk"
 version = "2.0.1"
 description = "FINBOURNE Scheduler API"
 authors = ["FINBOURNE Technology <info@finbourne.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/finbourne/scheduler-sdk-python"
-keywords = ["OpenAPI", "OpenAPI-Generator", "FINBOURNE Scheduler API", "finbourne-scheduler-sdk"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "FINBOURNE Scheduler API", "lusid-scheduler-sdk"]
 packages = [
-    {include = "finbourne_scheduler"}
+    {include = "lusid_scheduler"}
 ]
-include = ["finbourne_scheduler/**/*"]
+include = ["lusid_scheduler/**/*"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

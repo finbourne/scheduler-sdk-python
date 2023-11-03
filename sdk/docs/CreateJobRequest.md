@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_scheduler.models.create_job_request import CreateJobRequest
+from lusid_scheduler.models.create_job_request import CreateJobRequest
 
 # TODO update the JSON string below
 json = "{}"
