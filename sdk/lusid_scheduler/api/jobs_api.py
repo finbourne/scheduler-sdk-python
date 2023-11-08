@@ -1337,7 +1337,7 @@ class JobsApi:
         _auth_settings = ['oauth2']  # noqa: E501
 
         _response_types_map = {
-            '202': "StartJobResponse",
+            '200': "StartJobResponse",
             '400': "LusidValidationProblemDetails",
         }
 
