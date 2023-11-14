@@ -1,6 +1,6 @@
 # lusid_scheduler.ImagesApi
 
-All URIs are relative to *https://fbn-ci.lusid.com/scheduler2*
+All URIs are relative to *https://fbn-prd.lusid.com/scheduler2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -43,7 +43,7 @@ api_client_factory = ApiClientFactory()
 
 # The ApiClientFactory can be passed an iterable of configuration loaders to read configuration from
 
-api_url = "https://fbn-ci.lusid.com/scheduler2"
+api_url = "https://fbn-prd.lusid.com/scheduler2"
 # Path to a secrets.json file containing authentication credentials
 # See https://support.lusid.com/knowledgebase/article/KA-01667/en-us
 # for a detailed guide to setting up the SDK make authenticated calls to LUSID APIs
@@ -139,7 +139,7 @@ api_client_factory = ApiClientFactory()
 
 # The ApiClientFactory can be passed an iterable of configuration loaders to read configuration from
 
-api_url = "https://fbn-ci.lusid.com/scheduler2"
+api_url = "https://fbn-prd.lusid.com/scheduler2"
 # Path to a secrets.json file containing authentication credentials
 # See https://support.lusid.com/knowledgebase/article/KA-01667/en-us
 # for a detailed guide to setting up the SDK make authenticated calls to LUSID APIs
@@ -235,7 +235,7 @@ api_client_factory = ApiClientFactory()
 
 # The ApiClientFactory can be passed an iterable of configuration loaders to read configuration from
 
-api_url = "https://fbn-ci.lusid.com/scheduler2"
+api_url = "https://fbn-prd.lusid.com/scheduler2"
 # Path to a secrets.json file containing authentication credentials
 # See https://support.lusid.com/knowledgebase/article/KA-01667/en-us
 # for a detailed guide to setting up the SDK make authenticated calls to LUSID APIs
@@ -331,7 +331,7 @@ api_client_factory = ApiClientFactory()
 
 # The ApiClientFactory can be passed an iterable of configuration loaders to read configuration from
 
-api_url = "https://fbn-ci.lusid.com/scheduler2"
+api_url = "https://fbn-prd.lusid.com/scheduler2"
 # Path to a secrets.json file containing authentication credentials
 # See https://support.lusid.com/knowledgebase/article/KA-01667/en-us
 # for a detailed guide to setting up the SDK make authenticated calls to LUSID APIs
@@ -437,7 +437,7 @@ api_client_factory = ApiClientFactory()
 
 # The ApiClientFactory can be passed an iterable of configuration loaders to read configuration from
 
-api_url = "https://fbn-ci.lusid.com/scheduler2"
+api_url = "https://fbn-prd.lusid.com/scheduler2"
 # Path to a secrets.json file containing authentication credentials
 # See https://support.lusid.com/knowledgebase/article/KA-01667/en-us
 # for a detailed guide to setting up the SDK make authenticated calls to LUSID APIs
@@ -544,7 +544,7 @@ api_client_factory = ApiClientFactory()
 
 # The ApiClientFactory can be passed an iterable of configuration loaders to read configuration from
 
-api_url = "https://fbn-ci.lusid.com/scheduler2"
+api_url = "https://fbn-prd.lusid.com/scheduler2"
 # Path to a secrets.json file containing authentication credentials
 # See https://support.lusid.com/knowledgebase/article/KA-01667/en-us
 # for a detailed guide to setting up the SDK make authenticated calls to LUSID APIs
