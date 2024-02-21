@@ -24,19 +24,19 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.create_schedule_request import CreateScheduleRequest
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -121,17 +121,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -216,18 +216,18 @@ void (empty response body)
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -316,18 +316,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -414,18 +414,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -518,18 +518,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.start_schedule_response import StartScheduleResponse
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -616,19 +616,19 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
 from lusid_scheduler.models.update_schedule_request import UpdateScheduleRequest
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    SchedulesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client

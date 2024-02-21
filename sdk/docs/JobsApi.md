@@ -26,19 +26,19 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.create_job_request import CreateJobRequest
 from lusid_scheduler.models.job_definition import JobDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -72,7 +72,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 async with api_client_factory:
     # Create an instance of the API class
     api_instance = api_client_factory.build(lusid_scheduler.JobsApi)
-    create_job_request = {"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Data loader","author":"Job author","dateCreated":"2019-12-11T00:00:00.0000000+00:00","description":"Load EOD data","imageName":"alpine","imageTag":"latest","ttl":500,"minCpu":"2","maxCpu":"4","minMemory":"0.5Mi","maxMemory":"500Mi","argumentDefinitions":{"SECRET1":{"dataType":"SecureString","required":true,"description":"Database credentials","order":1,"constraints":"None","passedAs":"EnvironmentVariable"}},"commandLineArgumentSeparator":" ","requiredResources":{"lusidApis":["Shrine, IBOR"],"lusidFileSystem":[],"externalCalls":["AWS"]}} # CreateJobRequest | The request to create a new job
+    create_job_request = {"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Data loader","author":"Job author","dateCreated":"2019-12-11T00:00:00.0000000+00:00","description":"Load EOD data","imageName":"alpine","imageTag":"latest","ttl":500,"minCpu":"2","maxCpu":"4","minMemory":"0.5Mi","maxMemory":"500Mi","argumentDefinitions":{"SECRET1":{"dataType":"SecureString","required":true,"description":"Database credentials","order":1,"constraints":"None","passedAs":"EnvironmentVariable"}},"commandLineArgumentSeparator":" ","requiredResources":{"lusidApis":[],"lusidFileSystem":[],"externalCalls":[]}} # CreateJobRequest | The request to create a new job
 
     try:
         # [EXPERIMENTAL] CreateJob: Create a new job
@@ -123,18 +123,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -221,18 +221,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_job_history import ResourceListOfJobHistory
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -325,17 +325,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -420,18 +420,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.job_run_result import JobRunResult
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -516,18 +516,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -614,18 +614,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_job_definition import ResourceListOfJobDefinition
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -718,19 +718,19 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.start_job_request import StartJobRequest
 from lusid_scheduler.models.start_job_response import StartJobResponse
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -819,19 +819,19 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.job_definition import JobDefinition
 from lusid_scheduler.models.update_job_request import UpdateJobRequest
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    JobsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client

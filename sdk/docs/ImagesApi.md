@@ -23,17 +23,17 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ImagesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -119,17 +119,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ImagesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -214,18 +214,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.image import Image
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ImagesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -310,18 +310,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_image_summary import ResourceListOfImageSummary
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ImagesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -416,18 +416,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.resource_list_of_repository import ResourceListOfRepository
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ImagesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
@@ -522,19 +522,19 @@ Every image must have at least one tag. Note: your image will not be available u
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_scheduler
 from lusid_scheduler.rest import ApiException
 from lusid_scheduler.models.upload_image_instructions import UploadImageInstructions
 from lusid_scheduler.models.upload_image_request import UploadImageRequest
 from pprint import pprint
 
+import os
 from lusid_scheduler import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ImagesApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client

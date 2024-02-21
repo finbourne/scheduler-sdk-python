@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **max_memory** | **str** | Specifies the maximum amount of memory to be allocated for the job | [optional] 
 **argument_definitions** | [**Dict[str, ArgumentDefinition]**](ArgumentDefinition.md) | All arguments for this job to run | 
 **command_line_argument_separator** | **str** | Value to separate command line arguments  e.g : If a job has a command line argument named &#39;folder&#39; and the runtime value is &#39;s3://path&#39; then this  would be supplied to the command as &#39;folder{separatorValue}s3://path&#39;  Default to a space | [optional] 
-**required_resources** | [**RequiredResources**](RequiredResources.md) |  | 
+**required_resources** | [**RequiredResources**](RequiredResources.md) |  | [optional] 
 
 ## Example
 
