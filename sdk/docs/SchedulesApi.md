@@ -70,7 +70,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 async with api_client_factory:
     # Create an instance of the API class
     api_instance = api_client_factory.build(lusid_scheduler.SchedulesApi)
-    create_schedule_request = {"scheduleId":{"scope":"ScheduleScope","code":"ScheduleCode"},"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Schedule name","description":"Schedule description","author":"Schedule author","owner":"Schedule owner","arguments":{"Argument":"Argument value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["destination"]},{"fireOn":"Failed","transport":"SMS","destination":["destination1","destination2"]}],"enabled":true,"useAsAuth":"Schedule auth userId"} # CreateScheduleRequest | 
+    create_schedule_request = {"scheduleId":{"scope":"ScheduleScope","code":"ScheduleCode"},"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Schedule name","description":"Schedule description","author":"Schedule author","owner":"Schedule owner","arguments":{"Argument":"Argument value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"notifications":[],"enabled":true,"useAsAuth":"ScheduleAuthUserId"} # CreateScheduleRequest | 
 
     try:
         # [EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
@@ -664,7 +664,7 @@ async with api_client_factory:
     api_instance = api_client_factory.build(lusid_scheduler.SchedulesApi)
     scope = 'scope_example' # str | Scope of the schedule to be updated
     code = 'code_example' # str | Code of the schedule to be updated
-    update_schedule_request = {"jobId":{"scope":"JobScope","code":"JobCode"},"name":"UpdatedSchedule","description":"Updated description","author":"Updated author","owner":"Updated owner","arguments":{"UpdatedArgument":"Updated value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["destination"]},{"fireOn":"Failed","transport":"SMS","destination":["destination1","destination2"]}],"enabled":true,"useAsAuth":"Schedule auth userId"} # UpdateScheduleRequest | The updated schedule
+    update_schedule_request = {"jobId":{"scope":"JobScope","code":"JobCode"},"name":"UpdatedSchedule","description":"Updated description","author":"Updated author","owner":"Updated owner","arguments":{"UpdatedArgument":"Updated value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"enabled":true,"useAsAuth":"ScheduleAuthUserId"} # UpdateScheduleRequest | The updated schedule
 
     try:
         # [EXPERIMENTAL] UpdateSchedule: Update a schedule.

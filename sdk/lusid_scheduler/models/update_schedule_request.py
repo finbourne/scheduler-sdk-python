@@ -35,7 +35,7 @@ class UpdateScheduleRequest(BaseModel):
     owner: Optional[constr(strict=True, max_length=512, min_length=0)] = Field(None, description="The update owner of the schedule")
     arguments: Optional[Dict[str, StrictStr]] = Field(None, description="Updated arguments to be passed to the job  Note: The new arguments will completely replace old arguments")
     trigger: Optional[Trigger] = None
-    notifications: conlist(Notification) = Field(..., description="Updated notifications for this schedule")
+    notifications: Optional[conlist(Notification)] = Field(None, description="Updated notifications for this schedule")
     enabled: Optional[StrictBool] = Field(None, description="Specify whether schedule is enabled or not  Defaults to true")
     use_as_auth: Optional[constr(strict=True, max_length=64, min_length=1)] = Field(None, alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we'll default to that of the user   making this request")
     __properties = ["jobId", "name", "description", "author", "owner", "arguments", "trigger", "notifications", "enabled", "useAsAuth"]
@@ -135,6 +135,11 @@ class UpdateScheduleRequest(BaseModel):
         # and __fields_set__ contains the field
         if self.arguments is None and "arguments" in self.__fields_set__:
             _dict['arguments'] = None
+
+        # set to None if notifications (nullable) is None
+        # and __fields_set__ contains the field
+        if self.notifications is None and "notifications" in self.__fields_set__:
+            _dict['notifications'] = None
 
         # set to None if use_as_auth (nullable) is None
         # and __fields_set__ contains the field

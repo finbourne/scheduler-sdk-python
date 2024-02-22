@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **owner** | **str** | The update owner of the schedule | [optional] 
 **arguments** | **Dict[str, str]** | Updated arguments to be passed to the job  Note: The new arguments will completely replace old arguments | [optional] 
 **trigger** | [**Trigger**](Trigger.md) |  | [optional] 
-**notifications** | [**List[Notification]**](Notification.md) | Updated notifications for this schedule | 
+**notifications** | [**List[Notification]**](Notification.md) | Updated notifications for this schedule | [optional] 
 **enabled** | **bool** | Specify whether schedule is enabled or not  Defaults to true | [optional] 
 **use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we&#39;ll default to that of the user   making this request | [optional] 
 
