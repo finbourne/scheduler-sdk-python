@@ -6,3 +6,10 @@ from lusid_scheduler.api.images_api import ImagesApi
 from lusid_scheduler.api.jobs_api import JobsApi
 from lusid_scheduler.api.schedules_api import SchedulesApi
 
+
+__all__ = [
+    "ApplicationMetadataApi",
+    "ImagesApi",
+    "JobsApi",
+    "SchedulesApi"
+]

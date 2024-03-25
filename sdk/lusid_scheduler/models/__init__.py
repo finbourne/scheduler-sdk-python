@@ -54,3 +54,47 @@ from lusid_scheduler.models.update_schedule_request import UpdateScheduleRequest
 from lusid_scheduler.models.upload_image_instructions import UploadImageInstructions
 from lusid_scheduler.models.upload_image_request import UploadImageRequest
 from lusid_scheduler.models.vulnerability import Vulnerability
+
+
+__all__ = [
+    "AccessControlledAction",
+    "AccessControlledResource",
+    "ActionId",
+    "ArgumentDefinition",
+    "CreateJobRequest",
+    "CreateScheduleRequest",
+    "IdSelectorDefinition",
+    "IdentifierPartSchema",
+    "Image",
+    "ImageSummary",
+    "JobDefinition",
+    "JobHistory",
+    "JobRunResult",
+    "Link",
+    "LusidProblemDetails",
+    "LusidValidationProblemDetails",
+    "Notification",
+    "Repository",
+    "RequiredResources",
+    "ResourceId",
+    "ResourceListOfAccessControlledResource",
+    "ResourceListOfImageSummary",
+    "ResourceListOfJobDefinition",
+    "ResourceListOfJobHistory",
+    "ResourceListOfRepository",
+    "ResourceListOfScheduleDefinition",
+    "ScanReport",
+    "ScanSummary",
+    "ScheduleDefinition",
+    "StartJobRequest",
+    "StartJobResponse",
+    "StartScheduleResponse",
+    "Tag",
+    "TimeTrigger",
+    "Trigger",
+    "UpdateJobRequest",
+    "UpdateScheduleRequest",
+    "UploadImageInstructions",
+    "UploadImageRequest",
+    "Vulnerability"
+]

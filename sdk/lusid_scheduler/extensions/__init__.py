@@ -5,3 +5,14 @@ from lusid_scheduler.extensions.configuration_loaders import (
     EnvironmentVariablesConfigurationLoader,
     ArgsConfigurationLoader,
 )
+from lusid_scheduler.extensions.api_client import SyncApiClient
+
+__all__ = [
+    "SyncApiClientFactory",
+    "ApiClientFactory",
+    "ConfigurationLoader",
+    "SecretsFileConfigurationLoader",
+    "EnvironmentVariablesConfigurationLoader",
+    "ArgsConfigurationLoader",
+    "SyncApiClient"
+]
