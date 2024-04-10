@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist
 from lusid_scheduler.models.link import Link
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
 

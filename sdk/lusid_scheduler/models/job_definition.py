@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr
 from lusid_scheduler.models.argument_definition import ArgumentDefinition
 from lusid_scheduler.models.required_resources import RequiredResources
 from lusid_scheduler.models.resource_id import ResourceId

@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
 from lusid_scheduler.models.scan_report import ScanReport
 from lusid_scheduler.models.tag import Tag
 

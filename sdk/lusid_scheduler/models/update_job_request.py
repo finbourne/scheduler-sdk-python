@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic import BaseModel, Field, StrictInt, StrictStr, constr, validator
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, constr, validator
 from lusid_scheduler.models.argument_definition import ArgumentDefinition
 from lusid_scheduler.models.required_resources import RequiredResources
 
