@@ -79,6 +79,7 @@ from lusid_scheduler.extensions import (
     ConfigurationLoader,
     SecretsFileConfigurationLoader,
     EnvironmentVariablesConfigurationLoader,
+    FileTokenConfigurationLoader,
     ArgsConfigurationLoader,
     SyncApiClient
 )
@@ -141,6 +142,8 @@ __all__ = [
     "ConfigurationLoader",
     "SecretsFileConfigurationLoader",
     "EnvironmentVariablesConfigurationLoader",
+    "FileTokenConfigurationLoader",
     "ArgsConfigurationLoader",
     "SyncApiClient"
+    
 ]
