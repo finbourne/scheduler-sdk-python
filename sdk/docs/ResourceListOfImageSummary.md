@@ -27,6 +27,6 @@ resource_list_of_image_summary_dict = resource_list_of_image_summary_instance.to
 # create an instance of ResourceListOfImageSummary from a dict
 resource_list_of_image_summary_form_dict = resource_list_of_image_summary.from_dict(resource_list_of_image_summary_dict)
 ```
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
 

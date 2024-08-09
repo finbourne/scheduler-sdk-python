@@ -28,6 +28,6 @@ tag_dict = tag_instance.to_dict()
 # create an instance of Tag from a dict
 tag_form_dict = tag.from_dict(tag_dict)
 ```
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
 
