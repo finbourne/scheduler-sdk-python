@@ -1196,7 +1196,7 @@ class JobsApi:
 
     @validate_arguments
     def run_job(self, scope : Annotated[StrictStr, Field(..., description="The scope of the job")], code : Annotated[StrictStr, Field(..., description="The code of the job")], start_job_request : Annotated[StartJobRequest, Field(..., description="The request for starting job")], async_req: Optional[bool]=None, **kwargs) -> Union[StartJobResponse, Awaitable[StartJobResponse]]:  # noqa: E501
-        """[EXPERIMENTAL] RunJob: Run a job immediately  # noqa: E501
+        """RunJob: Run a job immediately  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1231,7 +1231,7 @@ class JobsApi:
 
     @validate_arguments
     def run_job_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="The scope of the job")], code : Annotated[StrictStr, Field(..., description="The code of the job")], start_job_request : Annotated[StartJobRequest, Field(..., description="The request for starting job")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] RunJob: Run a job immediately  # noqa: E501
+        """RunJob: Run a job immediately  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

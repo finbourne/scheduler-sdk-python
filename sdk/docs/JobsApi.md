@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**get_run_history**](JobsApi.md#get_run_history) | **GET** /api/jobs/history/{runId} | [EXPERIMENTAL] GetRunHistory: Get the history for a single job run
 [**get_schedules_for_a_job**](JobsApi.md#get_schedules_for_a_job) | **GET** /api/jobs/{scope}/{code}/schedules | [EXPERIMENTAL] GetSchedulesForAJob: Get all the schedules for a single job
 [**list_jobs**](JobsApi.md#list_jobs) | **GET** /api/jobs | [EXPERIMENTAL] ListJobs: List the available jobs
-[**run_job**](JobsApi.md#run_job) | **POST** /api/jobs/{scope}/{code}/$run | [EXPERIMENTAL] RunJob: Run a job immediately
+[**run_job**](JobsApi.md#run_job) | **POST** /api/jobs/{scope}/{code}/$run | RunJob: Run a job immediately
 [**update_job**](JobsApi.md#update_job) | **PUT** /api/jobs/{scope}/{code} | [EXPERIMENTAL] UpdateJob: Update a JobDefinition
 
 
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 # **run_job**
 > StartJobResponse run_job(scope, code, start_job_request)
 
-[EXPERIMENTAL] RunJob: Run a job immediately
+RunJob: Run a job immediately
 
 ### Example
 
@@ -638,7 +638,7 @@ async def main():
         start_job_request = StartJobRequest.from_dict({"arguments":{"ExchangeCode":"XLON"},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["Team A"]}],"useAsAuth":"job auth userId"}) # StartJobRequest | The request for starting job
 
         try:
-            # [EXPERIMENTAL] RunJob: Run a job immediately
+            # RunJob: Run a job immediately
             api_response = await api_instance.run_job(scope, code, start_job_request)
             pprint(api_response)
         except ApiException as e:
