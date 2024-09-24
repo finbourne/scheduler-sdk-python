@@ -23,6 +23,7 @@ Method | HTTP request | Description
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -49,6 +50,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -63,6 +72,9 @@ async def main():
         create_schedule_request = CreateScheduleRequest.from_dict({"scheduleId":{"scope":"ScheduleScope","code":"ScheduleCode"},"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Schedule name","description":"Schedule description","author":"Schedule author","owner":"Schedule owner","arguments":{"Argument":"Argument value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"notifications":[],"enabled":true,"useAsAuth":"ScheduleAuthUserId"}) # CreateScheduleRequest | 
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.create_schedule(create_schedule_request, opts=opts)
+
             # [EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
             api_response = await api_instance.create_schedule(create_schedule_request)
             pprint(api_response)
@@ -106,6 +118,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -132,6 +145,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -142,6 +163,9 @@ async def main():
         code = 'code_example' # str | Code of the schedule to be deleted
 
         try:
+            # uncomment the below to set overrides at the request level
+            # await api_instance.delete_schedule(scope, code, opts=opts)
+
             # [EXPERIMENTAL] DeleteSchedule: Delete a schedule
             await api_instance.delete_schedule(scope, code)        except ApiException as e:
             print("Exception when calling SchedulesApi->delete_schedule: %s\n" % e)
@@ -184,6 +208,7 @@ void (empty response body)
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -210,6 +235,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -221,6 +254,9 @@ async def main():
         enable = True # bool | Specify whether to enable or disable the schedule
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.enabled_schedule(scope, code, enable, opts=opts)
+
             # [EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule
             api_response = await api_instance.enabled_schedule(scope, code, enable)
             pprint(api_response)
@@ -266,6 +302,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -292,6 +329,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -302,6 +347,9 @@ async def main():
         code = 'code_example' # str | The code of the Schedule
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.get_schedule(scope, code, opts=opts)
+
             # [EXPERIMENTAL] GetSchedule: Get a single Schedule
             api_response = await api_instance.get_schedule(scope, code)
             pprint(api_response)
@@ -346,6 +394,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -372,6 +421,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -385,6 +442,9 @@ async def main():
         filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
+
             # [EXPERIMENTAL] ListSchedules: List the available Schedules
             api_response = await api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
             pprint(api_response)
@@ -432,6 +492,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -458,6 +519,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -468,6 +537,9 @@ async def main():
         code = 'code_example' # str | The schedule cde
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.run_schedule(scope, code, opts=opts)
+
             # [EXPERIMENTAL] RunSchedule: Run a schedule immediately
             api_response = await api_instance.run_schedule(scope, code)
             pprint(api_response)
@@ -512,6 +584,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -538,6 +611,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -554,6 +635,9 @@ async def main():
         update_schedule_request = UpdateScheduleRequest.from_dict({"jobId":{"scope":"JobScope","code":"JobCode"},"name":"UpdatedSchedule","description":"Updated description","author":"Updated author","owner":"Updated owner","arguments":{"UpdatedArgument":"Updated value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"enabled":true,"useAsAuth":"ScheduleAuthUserId"}) # UpdateScheduleRequest | The updated schedule
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.update_schedule(scope, code, update_schedule_request, opts=opts)
+
             # [EXPERIMENTAL] UpdateSchedule: Update a schedule.
             api_response = await api_instance.update_schedule(scope, code, update_schedule_request)
             pprint(api_response)

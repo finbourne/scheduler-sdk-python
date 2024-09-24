@@ -22,6 +22,7 @@ Method | HTTP request | Description
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -48,6 +49,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -57,6 +66,9 @@ async def main():
         name = 'name_example' # str | The name and tag of the image. Format \"ExampleImageName:0.1\"
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.delete_image(name, opts=opts)
+
             # [EXPERIMENTAL] DeleteImage: Delete a Docker Image
             api_response = await api_instance.delete_image(name)
             pprint(api_response)
@@ -101,6 +113,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -127,6 +140,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -136,6 +157,9 @@ async def main():
         name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest\"
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.download_image(name, opts=opts)
+
             # [EXPERIMENTAL] DownloadImage: Download Docker Image
             api_response = await api_instance.download_image(name)
             pprint(api_response)
@@ -179,6 +203,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -205,6 +230,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -214,6 +247,9 @@ async def main():
         name = 'name_example' # str | The name and tag of a Docker image. Format \"ExampleImageName:latest\"
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.get_image(name, opts=opts)
+
             # [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
             api_response = await api_instance.get_image(name)
             pprint(api_response)
@@ -257,6 +293,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -283,6 +320,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -297,6 +342,9 @@ async def main():
         filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
+
             # [EXPERIMENTAL] ListImages: List all images under same image repository
             api_response = await api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
             pprint(api_response)
@@ -345,6 +393,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -371,6 +420,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -384,6 +441,9 @@ async def main():
         filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
+
             # [EXPERIMENTAL] ListRepositories: List all Docker image repositories
             api_response = await api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
             pprint(api_response)
@@ -433,6 +493,7 @@ Every image must have at least one tag. Note: your image will not be available u
 ```python
 import asyncio
 from lusid_scheduler.exceptions import ApiException
+from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
@@ -459,6 +520,14 @@ async def main():
     # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -473,6 +542,9 @@ async def main():
         upload_image_request = UploadImageRequest.from_dict({"imageName":"example-image-name:0.0.1"}) # UploadImageRequest | Request to upload image
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.upload_image(upload_image_request, opts=opts)
+
             # [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
             api_response = await api_instance.upload_image(upload_image_request)
             pprint(api_response)
