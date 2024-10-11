@@ -67,9 +67,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # create_schedule_request = CreateScheduleRequest()
         # create_schedule_request = CreateScheduleRequest.from_json("")
-        create_schedule_request = CreateScheduleRequest.from_dict({"scheduleId":{"scope":"ScheduleScope","code":"ScheduleCode"},"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Schedule name","description":"Schedule description","author":"Schedule author","owner":"Schedule owner","arguments":{"Argument":"Argument value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"notifications":[],"enabled":true,"useAsAuth":"ScheduleAuthUserId"}) # CreateScheduleRequest | 
+        # create_schedule_request = CreateScheduleRequest.from_dict({})
+        create_schedule_request = CreateScheduleRequest()
 
         try:
             # uncomment the below to set overrides at the request level
@@ -630,9 +630,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # update_schedule_request = UpdateScheduleRequest()
         # update_schedule_request = UpdateScheduleRequest.from_json("")
-        update_schedule_request = UpdateScheduleRequest.from_dict({"jobId":{"scope":"JobScope","code":"JobCode"},"name":"UpdatedSchedule","description":"Updated description","author":"Updated author","owner":"Updated owner","arguments":{"UpdatedArgument":"Updated value"},"trigger":{"timeTrigger":{"expression":"0 0 5 ? * 3","timeZone":"UTC"}},"enabled":true,"useAsAuth":"ScheduleAuthUserId"}) # UpdateScheduleRequest | The updated schedule
+        # update_schedule_request = UpdateScheduleRequest.from_dict({})
+        update_schedule_request = UpdateScheduleRequest()
 
         try:
             # uncomment the below to set overrides at the request level

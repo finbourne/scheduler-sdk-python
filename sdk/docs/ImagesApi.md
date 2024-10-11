@@ -537,9 +537,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # upload_image_request = UploadImageRequest()
         # upload_image_request = UploadImageRequest.from_json("")
-        upload_image_request = UploadImageRequest.from_dict({"imageName":"example-image-name:0.0.1"}) # UploadImageRequest | Request to upload image
+        # upload_image_request = UploadImageRequest.from_dict({})
+        upload_image_request = UploadImageRequest()
 
         try:
             # uncomment the below to set overrides at the request level

@@ -69,9 +69,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # create_job_request = CreateJobRequest()
         # create_job_request = CreateJobRequest.from_json("")
-        create_job_request = CreateJobRequest.from_dict({"jobId":{"scope":"JobScope","code":"JobCode"},"name":"Data loader","author":"Job author","dateCreated":"2019-12-11T00:00:00.0000000+00:00","description":"Load EOD data","imageName":"alpine","imageTag":"latest","ttl":500,"minCpu":"2","maxCpu":"4","minMemory":"0.5Mi","maxMemory":"500Mi","argumentDefinitions":{"SECRET1":{"dataType":"SecureString","required":true,"description":"Database credentials","order":1,"constraints":"None","passedAs":"EnvironmentVariable"}},"commandLineArgumentSeparator":" ","requiredResources":{"lusidApis":[],"lusidFileSystem":[],"externalCalls":[]}}) # CreateJobRequest | The request to create a new job
+        # create_job_request = CreateJobRequest.from_dict({})
+        create_job_request = CreateJobRequest()
 
         try:
             # uncomment the below to set overrides at the request level
@@ -726,9 +726,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # start_job_request = StartJobRequest()
         # start_job_request = StartJobRequest.from_json("")
-        start_job_request = StartJobRequest.from_dict({"arguments":{"ExchangeCode":"XLON"},"notifications":[{"fireOn":"Completed","transport":"Email","destination":["Team A"]}],"useAsAuth":"job auth userId"}) # StartJobRequest | The request for starting job
+        # start_job_request = StartJobRequest.from_dict({})
+        start_job_request = StartJobRequest()
 
         try:
             # uncomment the below to set overrides at the request level
@@ -825,9 +825,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # update_job_request = UpdateJobRequest()
         # update_job_request = UpdateJobRequest.from_json("")
-        update_job_request = UpdateJobRequest.from_dict({"name":"Updated job name","author":"Job author","description":"Updated job description","imageName":"Updated image name","imageTag":"Updated image tag","ttl":250,"minCpu":"2","maxCpu":"4","minMemory":"0.5Mi","maxMemory":"500Mi","argumentDefinitions":{"UpdatedSecret":{"dataType":"SecureString","required":true,"description":"Database credentials","order":1,"constraints":"None","passedAs":"EnvironmentVariable"},"UpdatedArgument":{"dataType":"String","required":true,"description":"Command line argument","order":2,"constraints":"None","passedAs":"CommandLine","defaultValue":"Update default value"}},"commandLineArgumentSeparator":" ","requiredResources":{"lusidApis":["Shrine, IBOR"],"lusidFileSystem":[],"externalCalls":["AWS"]}}) # UpdateJobRequest | 
+        # update_job_request = UpdateJobRequest.from_dict({})
+        update_job_request = UpdateJobRequest()
 
         try:
             # uncomment the below to set overrides at the request level
