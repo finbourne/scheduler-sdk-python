@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, constr, validator
+from pydantic.v1 import BaseModel, Field, StrictStr, conint, constr, validator
 from lusid_scheduler.models.argument_definition import ArgumentDefinition
 from lusid_scheduler.models.required_resources import RequiredResources
 from lusid_scheduler.models.resource_id import ResourceId
@@ -35,7 +35,7 @@ class CreateJobRequest(BaseModel):
     description: constr(strict=True, max_length=512, min_length=1) = Field(..., description="Description of this job")
     image_name: constr(strict=True, min_length=1) = Field(..., alias="imageName", description="The name of the Docker image that contains this job")
     image_tag: constr(strict=True, max_length=128, min_length=0) = Field(..., alias="imageTag", description="The tag of the Docker image that contains this job")
-    ttl: Optional[StrictInt] = Field(None, description="Time To Live of the job run in seconds  Defaults to 5 minutes(300)")
+    ttl: Optional[conint(strict=True, le=18000, ge=0)] = Field(None, description="Time To Live of the job run in seconds  Defaults to 5 minutes(300)")
     min_cpu: Optional[StrictStr] = Field(None, alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job  Default to 2")
     max_cpu: Optional[StrictStr] = Field(None, alias="maxCpu", description="Specifies  maximum number of CPUs to be allocated for the job")
     min_memory: Optional[StrictStr] = Field(None, alias="minMemory", description="Specifies the minimum amount of memory  to be allocated for the job")
