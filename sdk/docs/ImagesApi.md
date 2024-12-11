@@ -20,33 +20,32 @@ Method | HTTP request | Description
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ImagesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -55,27 +54,28 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ImagesApi)
-        name = 'name_example' # str | The name and tag of the image. Format \"ExampleImageName:0.1\"
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ImagesApi)
+    name = 'name_example' # str | The name and tag of the image. Format \"ExampleImageName:0.1\"
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.delete_image(name, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.delete_image(name, opts=opts)
 
-            # [EXPERIMENTAL] DeleteImage: Delete a Docker Image
-            api_response = await api_instance.delete_image(name)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ImagesApi->delete_image: %s\n" % e)
+        # [EXPERIMENTAL] DeleteImage: Delete a Docker Image
+        api_response = api_instance.delete_image(name)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ImagesApi->delete_image: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -111,33 +111,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ImagesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -146,27 +145,28 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ImagesApi)
-        name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest\"
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ImagesApi)
+    name = 'name_example' # str | The name and tag of the image of the image. Format \"ExampleImageName:latest\"
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.download_image(name, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.download_image(name, opts=opts)
 
-            # [EXPERIMENTAL] DownloadImage: Download Docker Image
-            api_response = await api_instance.download_image(name)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ImagesApi->download_image: %s\n" % e)
+        # [EXPERIMENTAL] DownloadImage: Download Docker Image
+        api_response = api_instance.download_image(name)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ImagesApi->download_image: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -201,33 +201,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ImagesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -236,27 +235,28 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ImagesApi)
-        name = 'name_example' # str | The name and tag of a Docker image. Format \"ExampleImageName:latest\"
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ImagesApi)
+    name = 'name_example' # str | The name and tag of a Docker image. Format \"ExampleImageName:latest\"
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.get_image(name, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.get_image(name, opts=opts)
 
-            # [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
-            api_response = await api_instance.get_image(name)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ImagesApi->get_image: %s\n" % e)
+        # [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
+        api_response = api_instance.get_image(name)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ImagesApi->get_image: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -291,33 +291,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ImagesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -326,32 +325,33 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ImagesApi)
-        name = 'name_example' # str | The name of the Repository
-        page = 'page_example' # str | The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
-        sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
-        start = 56 # int | When paginating, skip this number of results. (optional)
-        limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
-        filter = 'filter_example' # str | Expression to filter the result set. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ImagesApi)
+    name = 'name_example' # str | The name of the Repository
+    page = 'page_example' # str | The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+    sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
+    start = 56 # int | When paginating, skip this number of results. (optional)
+    limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
+    filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-            # [EXPERIMENTAL] ListImages: List all images under same image repository
-            api_response = await api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ImagesApi->list_images: %s\n" % e)
+        # [EXPERIMENTAL] ListImages: List all images under same image repository
+        api_response = api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ImagesApi->list_images: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -391,33 +391,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ImagesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -426,31 +425,32 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ImagesApi)
-        page = 'page_example' # str | The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
-        sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
-        start = 56 # int | When paginating, skip this number of results. (optional)
-        limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
-        filter = 'filter_example' # str | Expression to filter the result set. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ImagesApi)
+    page = 'page_example' # str | The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+    sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
+    start = 56 # int | When paginating, skip this number of results. (optional)
+    limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
+    filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-            # [EXPERIMENTAL] ListRepositories: List all Docker image repositories
-            api_response = await api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ImagesApi->list_repositories: %s\n" % e)
+        # [EXPERIMENTAL] ListRepositories: List all Docker image repositories
+        api_response = api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ImagesApi->list_repositories: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -491,33 +491,32 @@ Every image must have at least one tag. Note: your image will not be available u
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ImagesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -526,32 +525,33 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ImagesApi)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ImagesApi)
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # upload_image_request = UploadImageRequest.from_json("")
-        # upload_image_request = UploadImageRequest.from_dict({})
-        upload_image_request = UploadImageRequest()
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # upload_image_request = UploadImageRequest.from_json("")
+    # upload_image_request = UploadImageRequest.from_dict({})
+    upload_image_request = UploadImageRequest()
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.upload_image(upload_image_request, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.upload_image(upload_image_request, opts=opts)
 
-            # [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
-            api_response = await api_instance.upload_image(upload_image_request)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ImagesApi->upload_image: %s\n" % e)
+        # [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
+        api_response = api_instance.upload_image(upload_image_request)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ImagesApi->upload_image: %s\n" % e)
+
+main()
 ```
 
 ### Parameters

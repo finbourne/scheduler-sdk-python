@@ -21,33 +21,32 @@ Method | HTTP request | Description
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -56,32 +55,33 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # create_schedule_request = CreateScheduleRequest.from_json("")
-        # create_schedule_request = CreateScheduleRequest.from_dict({})
-        create_schedule_request = CreateScheduleRequest()
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # create_schedule_request = CreateScheduleRequest.from_json("")
+    # create_schedule_request = CreateScheduleRequest.from_dict({})
+    create_schedule_request = CreateScheduleRequest()
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.create_schedule(create_schedule_request, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.create_schedule(create_schedule_request, opts=opts)
 
-            # [EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
-            api_response = await api_instance.create_schedule(create_schedule_request)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling SchedulesApi->create_schedule: %s\n" % e)
+        # [EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
+        api_response = api_instance.create_schedule(create_schedule_request)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->create_schedule: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -116,33 +116,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -151,26 +150,27 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
-        scope = 'scope_example' # str | Scope of the schedule to be deleted
-        code = 'code_example' # str | Code of the schedule to be deleted
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
+    scope = 'scope_example' # str | Scope of the schedule to be deleted
+    code = 'code_example' # str | Code of the schedule to be deleted
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # await api_instance.delete_schedule(scope, code, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        #  api_instance.delete_schedule(scope, code, opts=opts)
 
-            # [EXPERIMENTAL] DeleteSchedule: Delete a schedule
-            await api_instance.delete_schedule(scope, code)        except ApiException as e:
-            print("Exception when calling SchedulesApi->delete_schedule: %s\n" % e)
+        # [EXPERIMENTAL] DeleteSchedule: Delete a schedule
+        api_instance.delete_schedule(scope, code)
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->delete_schedule: %s\n" % e)
 
-asyncio.run(main())
+main()
 ```
 
 ### Parameters
@@ -206,33 +206,32 @@ void (empty response body)
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -241,29 +240,30 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
-        scope = 'scope_example' # str | Scope of the schedule to be enabled/disabled
-        code = 'code_example' # str | Code of the schedule to be enabled/disabled
-        enable = True # bool | Specify whether to enable or disable the schedule
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
+    scope = 'scope_example' # str | Scope of the schedule to be enabled/disabled
+    code = 'code_example' # str | Code of the schedule to be enabled/disabled
+    enable = True # bool | Specify whether to enable or disable the schedule
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.enabled_schedule(scope, code, enable, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.enabled_schedule(scope, code, enable, opts=opts)
 
-            # [EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule
-            api_response = await api_instance.enabled_schedule(scope, code, enable)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling SchedulesApi->enabled_schedule: %s\n" % e)
+        # [EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule
+        api_response = api_instance.enabled_schedule(scope, code, enable)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->enabled_schedule: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -300,33 +300,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -335,28 +334,29 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
-        scope = 'scope_example' # str | The scope of Schedule
-        code = 'code_example' # str | The code of the Schedule
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
+    scope = 'scope_example' # str | The scope of Schedule
+    code = 'code_example' # str | The code of the Schedule
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.get_schedule(scope, code, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.get_schedule(scope, code, opts=opts)
 
-            # [EXPERIMENTAL] GetSchedule: Get a single Schedule
-            api_response = await api_instance.get_schedule(scope, code)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling SchedulesApi->get_schedule: %s\n" % e)
+        # [EXPERIMENTAL] GetSchedule: Get a single Schedule
+        api_response = api_instance.get_schedule(scope, code)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->get_schedule: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -392,33 +392,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -427,31 +426,32 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
-        page = 'page_example' # str | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
-        sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
-        start = 56 # int | When paginating, skip this number of results. (optional)
-        limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
-        filter = 'filter_example' # str | Expression to filter the result set. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
+    page = 'page_example' # str | The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided. (optional)
+    sort_by = ['sort_by_example'] # List[str] | Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. (optional)
+    start = 56 # int | When paginating, skip this number of results. (optional)
+    limit = 2000 # int | When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000. (optional) (default to 2000)
+    filter = 'filter_example' # str | Expression to filter the result set. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-            # [EXPERIMENTAL] ListSchedules: List the available Schedules
-            api_response = await api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling SchedulesApi->list_schedules: %s\n" % e)
+        # [EXPERIMENTAL] ListSchedules: List the available Schedules
+        api_response = api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->list_schedules: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -490,33 +490,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -525,28 +524,29 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
-        scope = 'scope_example' # str | The schedule scope
-        code = 'code_example' # str | The schedule cde
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
+    scope = 'scope_example' # str | The schedule scope
+    code = 'code_example' # str | The schedule cde
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.run_schedule(scope, code, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.run_schedule(scope, code, opts=opts)
 
-            # [EXPERIMENTAL] RunSchedule: Run a schedule immediately
-            api_response = await api_instance.run_schedule(scope, code)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling SchedulesApi->run_schedule: %s\n" % e)
+        # [EXPERIMENTAL] RunSchedule: Run a schedule immediately
+        api_response = api_instance.run_schedule(scope, code)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->run_schedule: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -582,33 +582,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.extensions.configuration_options import ConfigurationOptions
 from lusid_scheduler.models import *
 from pprint import pprint
 from lusid_scheduler import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     SchedulesApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "schedulerUrl":"https://<your-domain>.lusid.com/scheduler2",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_scheduler ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_scheduler SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -617,34 +616,35 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(SchedulesApi)
-        scope = 'scope_example' # str | Scope of the schedule to be updated
-        code = 'code_example' # str | Code of the schedule to be updated
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(SchedulesApi)
+    scope = 'scope_example' # str | Scope of the schedule to be updated
+    code = 'code_example' # str | Code of the schedule to be updated
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # update_schedule_request = UpdateScheduleRequest.from_json("")
-        # update_schedule_request = UpdateScheduleRequest.from_dict({})
-        update_schedule_request = UpdateScheduleRequest()
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # update_schedule_request = UpdateScheduleRequest.from_json("")
+    # update_schedule_request = UpdateScheduleRequest.from_dict({})
+    update_schedule_request = UpdateScheduleRequest()
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.update_schedule(scope, code, update_schedule_request, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.update_schedule(scope, code, update_schedule_request, opts=opts)
 
-            # [EXPERIMENTAL] UpdateSchedule: Update a schedule.
-            api_response = await api_instance.update_schedule(scope, code, update_schedule_request)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling SchedulesApi->update_schedule: %s\n" % e)
+        # [EXPERIMENTAL] UpdateSchedule: Update a schedule.
+        api_response = api_instance.update_schedule(scope, code, update_schedule_request)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling SchedulesApi->update_schedule: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
