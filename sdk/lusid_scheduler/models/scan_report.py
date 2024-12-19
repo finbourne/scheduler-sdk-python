@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist, Field
 from lusid_scheduler.models.scan_summary import ScanSummary
 from lusid_scheduler.models.vulnerability import Vulnerability
 
@@ -27,8 +27,8 @@ class ScanReport(BaseModel):
     """
     Represents the details of a security scan of an image  # noqa: E501
     """
-    severity: Optional[StrictStr] = Field(None, description="The overall severity. For example : \"High\" or \"None\"")
-    status: Optional[StrictStr] = Field(None, description="The status of the report")
+    severity: constr(strict=True) = Field(None,alias="severity", description="The overall severity. For example : \&quot;High\&quot; or \&quot;None\&quot;") 
+    status: constr(strict=True) = Field(None,alias="status", description="The status of the report") 
     start_time: Optional[datetime] = Field(None, alias="startTime", description="The start time of the scanning process")
     end_time: Optional[datetime] = Field(None, alias="endTime", description="The end time of the scanning process")
     scan_duration: Optional[StrictInt] = Field(None, alias="scanDuration", description="The duration of the scan in seconds")
@@ -40,6 +40,14 @@ class ScanReport(BaseModel):
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

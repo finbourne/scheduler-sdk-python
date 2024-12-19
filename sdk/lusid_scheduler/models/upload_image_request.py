@@ -19,26 +19,27 @@ import json
 
 
 from typing import Any, Dict
-from pydantic.v1 import BaseModel, Field, constr, validator
+from pydantic.v1 import BaseModel, Field, constr, validator, Field
 
 class UploadImageRequest(BaseModel):
     """
     Request to upload image for Scheduler use  # noqa: E501
     """
-    image_name: constr(strict=True, max_length=256, min_length=1) = Field(..., alias="imageName", description="Name of the image to be uploaded")
+    image_name: constr(strict=True) = Field(...,alias="imageName", description="Name of the image to be uploaded") 
     __properties = ["imageName"]
-
-    @validator('image_name')
-    def image_name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*:[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*$", value):
-            raise ValueError(r"must validate the regular expression /^[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*:[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*$/")
-        return value
 
     class Config:
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

@@ -19,13 +19,13 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, Field
 
 class Tag(BaseModel):
     """
     Represents data of an image's tag  # noqa: E501
     """
-    name: Optional[StrictStr] = Field(None, description="The name of the tag")
+    name: constr(strict=True) = Field(None,alias="name", description="The name of the tag") 
     pull_time: Optional[datetime] = Field(None, alias="pullTime", description="The latest pull time")
     push_time: Optional[datetime] = Field(None, alias="pushTime", description="The date of the tag's push")
     signed: Optional[StrictBool] = Field(None, description="Indicates whether the tag is signed")
@@ -36,6 +36,14 @@ class Tag(BaseModel):
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

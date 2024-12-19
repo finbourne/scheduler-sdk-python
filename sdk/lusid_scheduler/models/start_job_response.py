@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr
+from pydantic.v1 import BaseModel, Field, StrictStr, Field
 from lusid_scheduler.models.resource_id import ResourceId
 
 class StartJobResponse(BaseModel):
@@ -27,15 +27,23 @@ class StartJobResponse(BaseModel):
     Response from starting a job  # noqa: E501
     """
     job_id: Optional[ResourceId] = Field(None, alias="jobId")
-    run_id: Optional[StrictStr] = Field(None, alias="runId", description="Unique RunId of the started job run")
-    status: Optional[StrictStr] = Field(None, description="Link to the status of the started job")
-    result: Optional[StrictStr] = Field(None, description="Link to the result of the job run when completed")
+    run_id: constr(strict=True) = Field(None,alias="runId", description="Unique RunId of the started job run") 
+    status: constr(strict=True) = Field(None,alias="status", description="Link to the status of the started job") 
+    result: constr(strict=True) = Field(None,alias="result", description="Link to the result of the job run when completed") 
     __properties = ["jobId", "runId", "status", "result"]
 
     class Config:
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist, Field
 from lusid_scheduler.models.notification import Notification
 
 class StartJobRequest(BaseModel):
@@ -28,13 +28,21 @@ class StartJobRequest(BaseModel):
     """
     arguments: Optional[Dict[str, StrictStr]] = Field(None, description="All arguments needed for the Job to run")
     notifications: Optional[conlist(Notification)] = Field(None, description="Notifications for this Job")
-    use_as_auth: Optional[StrictStr] = Field(None, alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we'll default to that of the user   making this request")
+    use_as_auth: constr(strict=True) = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we&#39;ll default to that of the user   making this request") 
     __properties = ["arguments", "notifications", "useAsAuth"]
 
     class Config:
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

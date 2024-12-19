@@ -19,14 +19,14 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist, Field
 
 class Notification(BaseModel):
     """
     Notification type  # noqa: E501
     """
-    fire_on: Optional[StrictStr] = Field(None, alias="fireOn", description="Condition for the notification")
-    transport: Optional[StrictStr] = Field(None, description="The type of the notification")
+    fire_on: constr(strict=True) = Field(None,alias="fireOn", description="Condition for the notification") 
+    transport: constr(strict=True) = Field(None,alias="transport", description="The type of the notification") 
     destination: Optional[conlist(StrictStr)] = Field(None, description="Where the notification should be sent")
     __properties = ["fireOn", "transport", "destination"]
 
@@ -34,6 +34,14 @@ class Notification(BaseModel):
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
