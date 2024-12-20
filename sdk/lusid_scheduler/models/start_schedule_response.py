@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, Field
+from pydantic.v1 import BaseModel, Field, StrictStr
 from lusid_scheduler.models.resource_id import ResourceId
 
 class StartScheduleResponse(BaseModel):
@@ -28,9 +28,9 @@ class StartScheduleResponse(BaseModel):
     """
     schedule_id: Optional[ResourceId] = Field(None, alias="scheduleId")
     job_id: Optional[ResourceId] = Field(None, alias="jobId")
-    run_id: constr(strict=True) = Field(None,alias="runId", description="Unique RunId of the started schedule") 
-    status: constr(strict=True) = Field(None,alias="status", description="Status of the started schedule") 
-    result: constr(strict=True) = Field(None,alias="result", description="Link to the result of the job run when completed") 
+    run_id: Optional[StrictStr] = Field(None, alias="runId", description="Unique RunId of the started schedule")
+    status: Optional[StrictStr] = Field(None, description="Status of the started schedule")
+    result: Optional[StrictStr] = Field(None, description="Link to the result of the job run when completed")
     __properties = ["scheduleId", "jobId", "runId", "status", "result"]
 
     class Config:

@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, Field
+from pydantic.v1 import BaseModel, Field, StrictInt
 
 class ScanSummary(BaseModel):
     """

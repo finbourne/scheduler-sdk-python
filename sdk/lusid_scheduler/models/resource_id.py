@@ -19,15 +19,29 @@ import json
 
 
 from typing import Any, Dict
-from pydantic.v1 import BaseModel, Field, constr, validator, Field
+from pydantic.v1 import BaseModel, Field, constr, validator
 
 class ResourceId(BaseModel):
     """
     Resource Id  # noqa: E501
     """
-    scope: constr(strict=True) = Field(...,alias="scope", description="Scope of the resource") 
-    code: constr(strict=True) = Field(...,alias="code", description="Code of the resource") 
+    scope: constr(strict=True, max_length=64, min_length=1) = Field(..., description="Scope of the resource")
+    code: constr(strict=True, max_length=64, min_length=1) = Field(..., description="Code of the resource")
     __properties = ["scope", "code"]
+
+    @validator('scope')
+    def scope_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[a-zA-Z0-9\-_]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9\-_]+$/")
+        return value
+
+    @validator('code')
+    def code_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[a-zA-Z0-9\-_]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9\-_]+$/")
+        return value
 
     class Config:
         """Pydantic configuration"""

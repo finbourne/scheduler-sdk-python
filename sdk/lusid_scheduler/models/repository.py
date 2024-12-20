@@ -19,17 +19,17 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist, Field
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
 from lusid_scheduler.models.link import Link
 
 class Repository(BaseModel):
     """
     An object representation of a repository  # noqa: E501
     """
-    name: constr(strict=True) = Field(None,alias="name", description="The identifier of the repository") 
+    name: Optional[StrictStr] = Field(None, description="The identifier of the repository")
     creation_time: Optional[datetime] = Field(None, alias="creationTime", description="Date of  repository creation")
     last_update: Optional[datetime] = Field(None, alias="lastUpdate", description="The last update of the repository")
-    description: constr(strict=True) = Field(None,alias="description", description="Description of the repository") 
+    description: Optional[StrictStr] = Field(None, description="Description of the repository")
     pull_count: Optional[StrictInt] = Field(None, alias="pullCount", description="Number of times images were pulled from this repository")
     image_count: Optional[StrictInt] = Field(None, alias="imageCount", description="The number of versions of this image")
     images: Optional[Link] = None

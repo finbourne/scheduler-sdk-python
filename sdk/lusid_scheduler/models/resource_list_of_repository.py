@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist, Field
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist
 from lusid_scheduler.models.link import Link
 from lusid_scheduler.models.repository import Repository
 
@@ -28,10 +28,10 @@ class ResourceListOfRepository(BaseModel):
     ResourceListOfRepository
     """
     values: conlist(Repository) = Field(...)
-    href: constr(strict=True) = Field(None,alias="href") 
+    href: Optional[StrictStr] = None
     links: Optional[conlist(Link)] = None
-    next_page: constr(strict=True) = Field(None,alias="nextPage") 
-    previous_page: constr(strict=True) = Field(None,alias="previousPage") 
+    next_page: Optional[StrictStr] = Field(None, alias="nextPage")
+    previous_page: Optional[StrictStr] = Field(None, alias="previousPage")
     __properties = ["values", "href", "links", "nextPage", "previousPage"]
 
     class Config:

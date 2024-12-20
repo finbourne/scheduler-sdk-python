@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist, constr, validator, Field
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist, constr, validator
 from lusid_scheduler.models.notification import Notification
 from lusid_scheduler.models.resource_id import ResourceId
 from lusid_scheduler.models.trigger import Trigger
@@ -30,16 +30,60 @@ class CreateScheduleRequest(BaseModel):
     """
     schedule_id: ResourceId = Field(..., alias="scheduleId")
     job_id: ResourceId = Field(..., alias="jobId")
-    name: constr(strict=True) = Field(...,alias="name", description="A display name for this Schedule") 
-    description: constr(strict=True) = Field(...,alias="description", description="A description of the Schedule") 
-    author: constr(strict=True) = Field(None,alias="author", description="Name of the author of this schedule") 
-    owner: constr(strict=True) = Field(None,alias="owner", description="Name of owner of this schedule") 
+    name: constr(strict=True, max_length=512, min_length=1) = Field(..., description="A display name for this Schedule")
+    description: constr(strict=True, max_length=512, min_length=1) = Field(..., description="A description of the Schedule")
+    author: Optional[constr(strict=True, max_length=512, min_length=0)] = Field(None, description="Name of the author of this schedule")
+    owner: Optional[constr(strict=True, max_length=512, min_length=0)] = Field(None, description="Name of owner of this schedule")
     arguments: Optional[Dict[str, StrictStr]] = Field(None, description="All arguments specified by this Schedule that will be passed in to the Job")
     trigger: Optional[Trigger] = None
     notifications: Optional[conlist(Notification)] = Field(None, description="Notifications for this Schedule")
     enabled: Optional[StrictBool] = Field(None, description="Specify whether schedule is enabled or not  Defaults to true")
-    use_as_auth: constr(strict=True) = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we&#39;ll default to that of the user   making this request") 
+    use_as_auth: Optional[constr(strict=True, max_length=64, min_length=1)] = Field(None, alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we'll default to that of the user   making this request")
     __properties = ["scheduleId", "jobId", "name", "description", "author", "owner", "arguments", "trigger", "notifications", "enabled", "useAsAuth"]
+
+    @validator('name')
+    def name_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[\s\S]*$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
+        return value
+
+    @validator('description')
+    def description_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[\s\S]*$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
+        return value
+
+    @validator('author')
+    def author_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\s\S]*$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
+        return value
+
+    @validator('owner')
+    def owner_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[\s\S]*$", value):
+            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
+        return value
+
+    @validator('use_as_auth')
+    def use_as_auth_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^[a-zA-Z0-9\-_]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9\-_]+$/")
+        return value
 
     class Config:
         """Pydantic configuration"""

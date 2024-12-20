@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist, Field
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
 from lusid_scheduler.models.link import Link
 from lusid_scheduler.models.scan_summary import ScanSummary
 from lusid_scheduler.models.tag import Tag
@@ -28,13 +28,13 @@ class ImageSummary(BaseModel):
     """
     Represents the metadata of an image  # noqa: E501
     """
-    name: constr(strict=True) = Field(None,alias="name", description="Name of the image") 
+    name: Optional[StrictStr] = Field(None, description="Name of the image")
     push_time: Optional[datetime] = Field(None, alias="pushTime", description="The push time of the image")
     pull_time: Optional[datetime] = Field(None, alias="pullTime", description="The latest pull time of the image")
-    digest: constr(strict=True) = Field(None,alias="digest", description="The digest of the image") 
+    digest: Optional[StrictStr] = Field(None, description="The digest of the image")
     size: Optional[StrictInt] = Field(None, description="The size of the image (in bytes)")
     tags: Optional[conlist(Tag)] = Field(None, description="The tags of the image")
-    scan_status: constr(strict=True) = Field(None,alias="scanStatus", description="The Scan Status of the stated image") 
+    scan_status: Optional[StrictStr] = Field(None, alias="scanStatus", description="The Scan Status of the stated image")
     scan_summary: Optional[ScanSummary] = Field(None, alias="scanSummary")
     link: Optional[Link] = None
     __properties = ["name", "pushTime", "pullTime", "digest", "size", "tags", "scanStatus", "scanSummary", "link"]

@@ -19,13 +19,13 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, Field
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr
 
 class Tag(BaseModel):
     """
     Represents data of an image's tag  # noqa: E501
     """
-    name: constr(strict=True) = Field(None,alias="name", description="The name of the tag") 
+    name: Optional[StrictStr] = Field(None, description="The name of the tag")
     pull_time: Optional[datetime] = Field(None, alias="pullTime", description="The latest pull time")
     push_time: Optional[datetime] = Field(None, alias="pushTime", description="The date of the tag's push")
     signed: Optional[StrictBool] = Field(None, description="Indicates whether the tag is signed")
