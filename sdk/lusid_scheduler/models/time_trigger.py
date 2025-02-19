@@ -19,14 +19,14 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, constr
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, constr 
 
 class TimeTrigger(BaseModel):
     """
     Time-based trigger  # noqa: E501
     """
-    expression: Optional[constr(strict=True, max_length=100, min_length=1)] = Field(None, description="Cron expression")
-    time_zone: Optional[constr(strict=True, max_length=100, min_length=1)] = Field(None, alias="timeZone", description="Time zone of the Cron expression. If not provided, defaults to UTC")
+    expression:  Optional[StrictStr] = Field(None,alias="expression", description="Cron expression") 
+    time_zone:  Optional[StrictStr] = Field(None,alias="timeZone", description="Time zone of the Cron expression. If not provided, defaults to UTC") 
     __properties = ["expression", "timeZone"]
 
     class Config:

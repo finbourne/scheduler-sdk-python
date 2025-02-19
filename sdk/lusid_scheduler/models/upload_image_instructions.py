@@ -19,18 +19,18 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, constr
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, constr 
 
 class UploadImageInstructions(BaseModel):
     """
       # noqa: E501
     """
-    docker_login_command: constr(strict=True, min_length=1) = Field(..., alias="dockerLoginCommand")
-    build_versioned_docker_image_command: constr(strict=True, min_length=1) = Field(..., alias="buildVersionedDockerImageCommand")
-    tag_versioned_docker_image_command: constr(strict=True, min_length=1) = Field(..., alias="tagVersionedDockerImageCommand")
-    push_versioned_docker_image_command: constr(strict=True, min_length=1) = Field(..., alias="pushVersionedDockerImageCommand")
-    tag_latest_docker_image_command: Optional[StrictStr] = Field(None, alias="tagLatestDockerImageCommand")
-    push_latest_docker_image_command: Optional[StrictStr] = Field(None, alias="pushLatestDockerImageCommand")
+    docker_login_command:  StrictStr = Field(...,alias="dockerLoginCommand") 
+    build_versioned_docker_image_command:  StrictStr = Field(...,alias="buildVersionedDockerImageCommand") 
+    tag_versioned_docker_image_command:  StrictStr = Field(...,alias="tagVersionedDockerImageCommand") 
+    push_versioned_docker_image_command:  StrictStr = Field(...,alias="pushVersionedDockerImageCommand") 
+    tag_latest_docker_image_command:  Optional[StrictStr] = Field(None,alias="tagLatestDockerImageCommand") 
+    push_latest_docker_image_command:  Optional[StrictStr] = Field(None,alias="pushLatestDockerImageCommand") 
     expiry_time: Optional[datetime] = Field(None, alias="expiryTime")
     __properties = ["dockerLoginCommand", "buildVersionedDockerImageCommand", "tagVersionedDockerImageCommand", "pushVersionedDockerImageCommand", "tagLatestDockerImageCommand", "pushLatestDockerImageCommand", "expiryTime"]
 

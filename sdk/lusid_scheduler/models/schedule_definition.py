@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictBool, StrictStr, conlist 
 from lusid_scheduler.models.notification import Notification
 from lusid_scheduler.models.resource_id import ResourceId
 from lusid_scheduler.models.trigger import Trigger
@@ -30,11 +30,11 @@ class ScheduleDefinition(BaseModel):
     """
     schedule_identifier: ResourceId = Field(..., alias="scheduleIdentifier")
     job_id: Optional[ResourceId] = Field(None, alias="jobId")
-    name: Optional[StrictStr] = Field(None, description="A display name for this Schedule")
-    description: Optional[StrictStr] = Field(None, description="A description of the Schedule")
-    author: Optional[StrictStr] = Field(None, description="Name of the author of this schedule")
-    owner: Optional[StrictStr] = Field(None, description="Name of owner of this schedule")
-    use_as_auth: Optional[StrictStr] = Field(None, alias="useAsAuth", description="User to runs schedule when automatically run and authenticates   requests in the schedule")
+    name:  Optional[StrictStr] = Field(None,alias="name", description="A display name for this Schedule") 
+    description:  Optional[StrictStr] = Field(None,alias="description", description="A description of the Schedule") 
+    author:  Optional[StrictStr] = Field(None,alias="author", description="Name of the author of this schedule") 
+    owner:  Optional[StrictStr] = Field(None,alias="owner", description="Name of owner of this schedule") 
+    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="User to runs schedule when automatically run and authenticates   requests in the schedule") 
     arguments: Optional[Dict[str, StrictStr]] = Field(None, description="All arguments specified by this Schedule that will be passed in to the Job")
     trigger: Optional[Trigger] = None
     notifications: Optional[conlist(Notification)] = Field(None, description="Notifications for this Schedule")

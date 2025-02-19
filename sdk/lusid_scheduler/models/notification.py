@@ -19,14 +19,14 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conlist 
 
 class Notification(BaseModel):
     """
     Notification type  # noqa: E501
     """
-    fire_on: Optional[StrictStr] = Field(None, alias="fireOn", description="Condition for the notification")
-    transport: Optional[StrictStr] = Field(None, description="The type of the notification")
+    fire_on:  Optional[StrictStr] = Field(None,alias="fireOn", description="Condition for the notification") 
+    transport:  Optional[StrictStr] = Field(None,alias="transport", description="The type of the notification") 
     destination: Optional[conlist(StrictStr)] = Field(None, description="Where the notification should be sent")
     __properties = ["fireOn", "transport", "destination"]
 

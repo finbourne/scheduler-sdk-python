@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conlist 
 from lusid_scheduler.models.notification import Notification
 
 class StartJobRequest(BaseModel):
@@ -28,7 +28,7 @@ class StartJobRequest(BaseModel):
     """
     arguments: Optional[Dict[str, StrictStr]] = Field(None, description="All arguments needed for the Job to run")
     notifications: Optional[conlist(Notification)] = Field(None, description="Notifications for this Job")
-    use_as_auth: Optional[StrictStr] = Field(None, alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we'll default to that of the user   making this request")
+    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we'll default to that of the user   making this request") 
     __properties = ["arguments", "notifications", "useAsAuth"]
 
     class Config:

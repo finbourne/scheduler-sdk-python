@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conint, constr, validator
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conint, constr, validator 
 from lusid_scheduler.models.argument_definition import ArgumentDefinition
 from lusid_scheduler.models.required_resources import RequiredResources
 from lusid_scheduler.models.resource_id import ResourceId
@@ -29,45 +29,21 @@ class CreateJobRequest(BaseModel):
     Definition of a job  # noqa: E501
     """
     job_id: ResourceId = Field(..., alias="jobId")
-    name: constr(strict=True, max_length=512, min_length=1) = Field(..., description="Name of the job")
-    author: Optional[constr(strict=True, max_length=512, min_length=0)] = Field(None, description="Author of the job")
+    name:  StrictStr = Field(...,alias="name", description="Name of the job") 
+    author:  Optional[StrictStr] = Field(None,alias="author", description="Author of the job") 
     date_created: Optional[datetime] = Field(None, alias="dateCreated", description="Date when job was created. Defaults to now.")
-    description: constr(strict=True, max_length=512, min_length=1) = Field(..., description="Description of this job")
-    image_name: constr(strict=True, min_length=1) = Field(..., alias="imageName", description="The name of the Docker image that contains this job")
-    image_tag: constr(strict=True, max_length=128, min_length=0) = Field(..., alias="imageTag", description="The tag of the Docker image that contains this job")
+    description:  StrictStr = Field(...,alias="description", description="Description of this job") 
+    image_name:  StrictStr = Field(...,alias="imageName", description="The name of the Docker image that contains this job") 
+    image_tag:  StrictStr = Field(...,alias="imageTag", description="The tag of the Docker image that contains this job") 
     ttl: Optional[conint(strict=True, le=18000, ge=0)] = Field(None, description="Time To Live of the job run in seconds  Defaults to 5 minutes(300)")
-    min_cpu: Optional[StrictStr] = Field(None, alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job  Default to 2")
-    max_cpu: Optional[StrictStr] = Field(None, alias="maxCpu", description="Specifies  maximum number of CPUs to be allocated for the job")
-    min_memory: Optional[StrictStr] = Field(None, alias="minMemory", description="Specifies the minimum amount of memory  to be allocated for the job")
-    max_memory: Optional[StrictStr] = Field(None, alias="maxMemory", description="Specifies the maximum amount of memory to be allocated for the job")
+    min_cpu:  Optional[StrictStr] = Field(None,alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job  Default to 2") 
+    max_cpu:  Optional[StrictStr] = Field(None,alias="maxCpu", description="Specifies  maximum number of CPUs to be allocated for the job") 
+    min_memory:  Optional[StrictStr] = Field(None,alias="minMemory", description="Specifies the minimum amount of memory  to be allocated for the job") 
+    max_memory:  Optional[StrictStr] = Field(None,alias="maxMemory", description="Specifies the maximum amount of memory to be allocated for the job") 
     argument_definitions: Dict[str, ArgumentDefinition] = Field(..., alias="argumentDefinitions", description="All arguments for this job to run")
-    command_line_argument_separator: Optional[constr(strict=True, max_length=5, min_length=0)] = Field(None, alias="commandLineArgumentSeparator", description="Value to separate command line arguments  e.g : If a job has a command line argument named 'folder' and the runtime value is 's3://path' then this  would be supplied to the command as 'folder{separatorValue}s3://path'  Default to a space")
+    command_line_argument_separator:  Optional[StrictStr] = Field(None,alias="commandLineArgumentSeparator", description="Value to separate command line arguments  e.g : If a job has a command line argument named 'folder' and the runtime value is 's3://path' then this  would be supplied to the command as 'folder{separatorValue}s3://path'  Default to a space") 
     required_resources: Optional[RequiredResources] = Field(None, alias="requiredResources")
     __properties = ["jobId", "name", "author", "dateCreated", "description", "imageName", "imageTag", "ttl", "minCpu", "maxCpu", "minMemory", "maxMemory", "argumentDefinitions", "commandLineArgumentSeparator", "requiredResources"]
-
-    @validator('name')
-    def name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[\s\S]*$", value):
-            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
-        return value
-
-    @validator('author')
-    def author_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^[\s\S]*$", value):
-            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
-        return value
-
-    @validator('description')
-    def description_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[\s\S]*$", value):
-            raise ValueError(r"must validate the regular expression /^[\s\S]*$/")
-        return value
 
     class Config:
         """Pydantic configuration"""

@@ -19,19 +19,19 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictInt, StrictStr, constr
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictBool, StrictInt, StrictStr, constr 
 
 class ArgumentDefinition(BaseModel):
     """
     Job argument definition  # noqa: E501
     """
-    data_type: constr(strict=True, min_length=1) = Field(..., alias="dataType", description="Data type of the argument")
+    data_type:  StrictStr = Field(...,alias="dataType", description="Data type of the argument") 
     required: Optional[StrictBool] = Field(None, description="Optionality of the argument")
-    description: constr(strict=True, max_length=255, min_length=0) = Field(..., description="Argument description")
+    description:  StrictStr = Field(...,alias="description", description="Argument description") 
     order: StrictInt = Field(..., description="The order of the argument")
-    constraints: Optional[StrictStr] = Field(None, description="Constrains of the argument value")
-    passed_as: constr(strict=True, min_length=1) = Field(..., alias="passedAs", description="Specifies how this argument should be passed in  Allowed values are: CommandLine or EnvironmentVariable    Defaults to: CommandLine")
-    default_value: Optional[StrictStr] = Field(None, alias="defaultValue", description="Specify a default value for this argument if no value is provided  The value needs to be convertible to the associated data type")
+    constraints:  Optional[StrictStr] = Field(None,alias="constraints", description="Constrains of the argument value") 
+    passed_as:  StrictStr = Field(...,alias="passedAs", description="Specifies how this argument should be passed in  Allowed values are: CommandLine or EnvironmentVariable    Defaults to: CommandLine") 
+    default_value:  Optional[StrictStr] = Field(None,alias="defaultValue", description="Specify a default value for this argument if no value is provided  The value needs to be convertible to the associated data type") 
     __properties = ["dataType", "required", "description", "order", "constraints", "passedAs", "defaultValue"]
 
     class Config:

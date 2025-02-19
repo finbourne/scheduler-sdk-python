@@ -19,21 +19,14 @@ import json
 
 
 from typing import Any, Dict
-from pydantic.v1 import BaseModel, Field, constr, validator
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, constr, validator 
 
 class UploadImageRequest(BaseModel):
     """
     Request to upload image for Scheduler use  # noqa: E501
     """
-    image_name: constr(strict=True, max_length=256, min_length=1) = Field(..., alias="imageName", description="Name of the image to be uploaded")
+    image_name:  StrictStr = Field(...,alias="imageName", description="Name of the image to be uploaded") 
     __properties = ["imageName"]
-
-    @validator('image_name')
-    def image_name_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*:[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*$", value):
-            raise ValueError(r"must validate the regular expression /^[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*:[a-z\d]+((([.]{1}|[_]{1,2}|[-])+)([a-z\d]+))*$/")
-        return value
 
     class Config:
         """Pydantic configuration"""
