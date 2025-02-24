@@ -35,7 +35,7 @@ class CreateJobRequest(BaseModel):
     description:  StrictStr = Field(...,alias="description", description="Description of this job") 
     image_name:  StrictStr = Field(...,alias="imageName", description="The name of the Docker image that contains this job") 
     image_tag:  StrictStr = Field(...,alias="imageTag", description="The tag of the Docker image that contains this job") 
-    ttl: Optional[conint(strict=True, le=18000, ge=0)] = Field(None, description="Time To Live of the job run in seconds  Defaults to 5 minutes(300)")
+    ttl: Optional[conint(strict=True)] = Field(None, description="Time To Live of the job run in seconds  Defaults to 5 minutes(300)")
     min_cpu:  Optional[StrictStr] = Field(None,alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job  Default to 2") 
     max_cpu:  Optional[StrictStr] = Field(None,alias="maxCpu", description="Specifies  maximum number of CPUs to be allocated for the job") 
     min_memory:  Optional[StrictStr] = Field(None,alias="minMemory", description="Specifies the minimum amount of memory  to be allocated for the job") 
