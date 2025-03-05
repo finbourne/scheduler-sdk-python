@@ -66,7 +66,7 @@ class ImagesApi:
 
     @validate_arguments
     def delete_image(self, name : Annotated[StrictStr, Field(..., description="The name and tag of the image. Format \"ExampleImageName:0.1\"")], async_req: Optional[bool]=None, **kwargs) -> Union[str, Awaitable[str]]:  # noqa: E501
-        """[EXPERIMENTAL] DeleteImage: Delete a Docker Image  # noqa: E501
+        """DeleteImage: Delete a Docker Image  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -96,7 +96,7 @@ class ImagesApi:
 
     @validate_arguments
     def delete_image_with_http_info(self, name : Annotated[StrictStr, Field(..., description="The name and tag of the image. Format \"ExampleImageName:0.1\"")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] DeleteImage: Delete a Docker Image  # noqa: E501
+        """DeleteImage: Delete a Docker Image  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -217,7 +217,7 @@ class ImagesApi:
 
     @validate_arguments
     def download_image(self, name : Annotated[StrictStr, Field(..., description="The name and tag of the image of the image. Format \"ExampleImageName:latest\"")], async_req: Optional[bool]=None, **kwargs) -> Union[bytearray, Awaitable[bytearray]]:  # noqa: E501
-        """[EXPERIMENTAL] DownloadImage: Download Docker Image  # noqa: E501
+        """DownloadImage: Download Docker Image  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -247,7 +247,7 @@ class ImagesApi:
 
     @validate_arguments
     def download_image_with_http_info(self, name : Annotated[StrictStr, Field(..., description="The name and tag of the image of the image. Format \"ExampleImageName:latest\"")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] DownloadImage: Download Docker Image  # noqa: E501
+        """DownloadImage: Download Docker Image  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -367,7 +367,7 @@ class ImagesApi:
 
     @validate_arguments
     def get_image(self, name : Annotated[StrictStr, Field(..., description="The name and tag of a Docker image. Format \"ExampleImageName:latest\"")], async_req: Optional[bool]=None, **kwargs) -> Union[Image, Awaitable[Image]]:  # noqa: E501
-        """[EXPERIMENTAL] GetImage: Get metadata of a Docker Image  # noqa: E501
+        """GetImage: Get metadata of a Docker Image  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -397,7 +397,7 @@ class ImagesApi:
 
     @validate_arguments
     def get_image_with_http_info(self, name : Annotated[StrictStr, Field(..., description="The name and tag of a Docker image. Format \"ExampleImageName:latest\"")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] GetImage: Get metadata of a Docker Image  # noqa: E501
+        """GetImage: Get metadata of a Docker Image  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -517,7 +517,7 @@ class ImagesApi:
 
     @validate_arguments
     def list_images(self, name : Annotated[StrictStr, Field(..., description="The name of the Repository")], page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfImageSummary, Awaitable[ResourceListOfImageSummary]]:  # noqa: E501
-        """[EXPERIMENTAL] ListImages: List all images under same image repository  # noqa: E501
+        """ListImages: List all images under same image repository  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -557,7 +557,7 @@ class ImagesApi:
 
     @validate_arguments
     def list_images_with_http_info(self, name : Annotated[StrictStr, Field(..., description="The name of the Repository")], page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] ListImages: List all images under same image repository  # noqa: E501
+        """ListImages: List all images under same image repository  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -708,7 +708,7 @@ class ImagesApi:
 
     @validate_arguments
     def list_repositories(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfRepository, Awaitable[ResourceListOfRepository]]:  # noqa: E501
-        """[EXPERIMENTAL] ListRepositories: List all Docker image repositories  # noqa: E501
+        """ListRepositories: List all Docker image repositories  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -746,7 +746,7 @@ class ImagesApi:
 
     @validate_arguments
     def list_repositories_with_http_info(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing images from a previous call to list images.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] ListRepositories: List all Docker image repositories  # noqa: E501
+        """ListRepositories: List all Docker image repositories  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -891,7 +891,7 @@ class ImagesApi:
 
     @validate_arguments
     def upload_image(self, upload_image_request : Annotated[UploadImageRequest, Field(..., description="Request to upload image")], async_req: Optional[bool]=None, **kwargs) -> Union[UploadImageInstructions, Awaitable[UploadImageInstructions]]:  # noqa: E501
-        """[EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs  # noqa: E501
+        """UploadImage: Upload a Docker Image used for Scheduler jobs  # noqa: E501
 
         Every image must have at least one tag. Note: your image will not be available until the returned Docker commands are executed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -922,7 +922,7 @@ class ImagesApi:
 
     @validate_arguments
     def upload_image_with_http_info(self, upload_image_request : Annotated[UploadImageRequest, Field(..., description="Request to upload image")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs  # noqa: E501
+        """UploadImage: Upload a Docker Image used for Scheduler jobs  # noqa: E501
 
         Every image must have at least one tag. Note: your image will not be available until the returned Docker commands are executed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

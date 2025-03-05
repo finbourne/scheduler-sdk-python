@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/scheduler2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_image**](ImagesApi.md#delete_image) | **DELETE** /api/images/{name} | [EXPERIMENTAL] DeleteImage: Delete a Docker Image
-[**download_image**](ImagesApi.md#download_image) | **GET** /api/images/{name}/contents | [EXPERIMENTAL] DownloadImage: Download Docker Image
-[**get_image**](ImagesApi.md#get_image) | **GET** /api/images/{name} | [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
-[**list_images**](ImagesApi.md#list_images) | **GET** /api/images/repository/{name} | [EXPERIMENTAL] ListImages: List all images under same image repository
-[**list_repositories**](ImagesApi.md#list_repositories) | **GET** /api/images/repository | [EXPERIMENTAL] ListRepositories: List all Docker image repositories
-[**upload_image**](ImagesApi.md#upload_image) | **POST** /api/images | [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
+[**delete_image**](ImagesApi.md#delete_image) | **DELETE** /api/images/{name} | DeleteImage: Delete a Docker Image
+[**download_image**](ImagesApi.md#download_image) | **GET** /api/images/{name}/contents | DownloadImage: Download Docker Image
+[**get_image**](ImagesApi.md#get_image) | **GET** /api/images/{name} | GetImage: Get metadata of a Docker Image
+[**list_images**](ImagesApi.md#list_images) | **GET** /api/images/repository/{name} | ListImages: List all images under same image repository
+[**list_repositories**](ImagesApi.md#list_repositories) | **GET** /api/images/repository | ListRepositories: List all Docker image repositories
+[**upload_image**](ImagesApi.md#upload_image) | **POST** /api/images | UploadImage: Upload a Docker Image used for Scheduler jobs
 
 
 # **delete_image**
 > str delete_image(name)
 
-[EXPERIMENTAL] DeleteImage: Delete a Docker Image
+DeleteImage: Delete a Docker Image
 
 ### Example
 
@@ -68,7 +68,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.delete_image(name, opts=opts)
 
-        # [EXPERIMENTAL] DeleteImage: Delete a Docker Image
+        # DeleteImage: Delete a Docker Image
         api_response = api_instance.delete_image(name)
         pprint(api_response)
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 # **download_image**
 > bytearray download_image(name)
 
-[EXPERIMENTAL] DownloadImage: Download Docker Image
+DownloadImage: Download Docker Image
 
 ### Example
 
@@ -159,7 +159,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.download_image(name, opts=opts)
 
-        # [EXPERIMENTAL] DownloadImage: Download Docker Image
+        # DownloadImage: Download Docker Image
         api_response = api_instance.download_image(name)
         pprint(api_response)
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 # **get_image**
 > Image get_image(name)
 
-[EXPERIMENTAL] GetImage: Get metadata of a Docker Image
+GetImage: Get metadata of a Docker Image
 
 ### Example
 
@@ -249,7 +249,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.get_image(name, opts=opts)
 
-        # [EXPERIMENTAL] GetImage: Get metadata of a Docker Image
+        # GetImage: Get metadata of a Docker Image
         api_response = api_instance.get_image(name)
         pprint(api_response)
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 # **list_images**
 > ResourceListOfImageSummary list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListImages: List all images under same image repository
+ListImages: List all images under same image repository
 
 ### Example
 
@@ -344,7 +344,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-        # [EXPERIMENTAL] ListImages: List all images under same image repository
+        # ListImages: List all images under same image repository
         api_response = api_instance.list_images(name, page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 # **list_repositories**
 > ResourceListOfRepository list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListRepositories: List all Docker image repositories
+ListRepositories: List all Docker image repositories
 
 ### Example
 
@@ -443,7 +443,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-        # [EXPERIMENTAL] ListRepositories: List all Docker image repositories
+        # ListRepositories: List all Docker image repositories
         api_response = api_instance.list_repositories(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 # **upload_image**
 > UploadImageInstructions upload_image(upload_image_request)
 
-[EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
+UploadImage: Upload a Docker Image used for Scheduler jobs
 
 Every image must have at least one tag. Note: your image will not be available until the returned Docker commands are executed.
 
@@ -544,7 +544,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.upload_image(upload_image_request, opts=opts)
 
-        # [EXPERIMENTAL] UploadImage: Upload a Docker Image used for Scheduler jobs
+        # UploadImage: Upload a Docker Image used for Scheduler jobs
         api_response = api_instance.upload_image(upload_image_request)
         pprint(api_response)
 

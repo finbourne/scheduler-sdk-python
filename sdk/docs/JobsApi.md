@@ -4,21 +4,21 @@ All URIs are relative to *https://fbn-prd.lusid.com/scheduler2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_job**](JobsApi.md#create_job) | **POST** /api/jobs | [EXPERIMENTAL] CreateJob: Create a new job
-[**delete_job**](JobsApi.md#delete_job) | **DELETE** /api/jobs/{scope}/{code} | [EXPERIMENTAL] DeleteJob: Delete a job
-[**get_history**](JobsApi.md#get_history) | **GET** /api/jobs/history | [EXPERIMENTAL] GetHistory: Get the history of job runs
-[**get_job_console_output**](JobsApi.md#get_job_console_output) | **GET** /api/jobs/history/{runId}/console | [EXPERIMENTAL] GetJobConsoleOutput: Gets the console output of a specific job run
-[**get_run_history**](JobsApi.md#get_run_history) | **GET** /api/jobs/history/{runId} | [EXPERIMENTAL] GetRunHistory: Get the history for a single job run
-[**get_schedules_for_a_job**](JobsApi.md#get_schedules_for_a_job) | **GET** /api/jobs/{scope}/{code}/schedules | [EXPERIMENTAL] GetSchedulesForAJob: Get all the schedules for a single job
-[**list_jobs**](JobsApi.md#list_jobs) | **GET** /api/jobs | [EXPERIMENTAL] ListJobs: List the available jobs
+[**create_job**](JobsApi.md#create_job) | **POST** /api/jobs | CreateJob: Create a new job
+[**delete_job**](JobsApi.md#delete_job) | **DELETE** /api/jobs/{scope}/{code} | DeleteJob: Delete a job
+[**get_history**](JobsApi.md#get_history) | **GET** /api/jobs/history | GetHistory: Get the history of job runs
+[**get_job_console_output**](JobsApi.md#get_job_console_output) | **GET** /api/jobs/history/{runId}/console | GetJobConsoleOutput: Gets the console output of a specific job run
+[**get_run_history**](JobsApi.md#get_run_history) | **GET** /api/jobs/history/{runId} | GetRunHistory: Get the history for a single job run
+[**get_schedules_for_a_job**](JobsApi.md#get_schedules_for_a_job) | **GET** /api/jobs/{scope}/{code}/schedules | GetSchedulesForAJob: Get all the schedules for a single job
+[**list_jobs**](JobsApi.md#list_jobs) | **GET** /api/jobs | ListJobs: List the available jobs
 [**run_job**](JobsApi.md#run_job) | **POST** /api/jobs/{scope}/{code}/$run | RunJob: Run a job immediately
-[**update_job**](JobsApi.md#update_job) | **PUT** /api/jobs/{scope}/{code} | [EXPERIMENTAL] UpdateJob: Update a JobDefinition
+[**update_job**](JobsApi.md#update_job) | **PUT** /api/jobs/{scope}/{code} | UpdateJob: Update a JobDefinition
 
 
 # **create_job**
 > JobDefinition create_job(create_job_request)
 
-[EXPERIMENTAL] CreateJob: Create a new job
+CreateJob: Create a new job
 
 ### Example
 
@@ -76,7 +76,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.create_job(create_job_request, opts=opts)
 
-        # [EXPERIMENTAL] CreateJob: Create a new job
+        # CreateJob: Create a new job
         api_response = api_instance.create_job(create_job_request)
         pprint(api_response)
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 # **delete_job**
 > ResourceListOfScheduleDefinition delete_job(scope, code)
 
-[EXPERIMENTAL] DeleteJob: Delete a job
+DeleteJob: Delete a job
 
 ### Example
 
@@ -167,7 +167,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.delete_job(scope, code, opts=opts)
 
-        # [EXPERIMENTAL] DeleteJob: Delete a job
+        # DeleteJob: Delete a job
         api_response = api_instance.delete_job(scope, code)
         pprint(api_response)
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 # **get_history**
 > ResourceListOfJobHistory get_history(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] GetHistory: Get the history of job runs
+GetHistory: Get the history of job runs
 
 ### Example
 
@@ -262,7 +262,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.get_history(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-        # [EXPERIMENTAL] GetHistory: Get the history of job runs
+        # GetHistory: Get the history of job runs
         api_response = api_instance.get_history(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 # **get_job_console_output**
 > str get_job_console_output(run_id)
 
-[EXPERIMENTAL] GetJobConsoleOutput: Gets the console output of a specific job run
+GetJobConsoleOutput: Gets the console output of a specific job run
 
 ### Example
 
@@ -356,7 +356,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.get_job_console_output(run_id, opts=opts)
 
-        # [EXPERIMENTAL] GetJobConsoleOutput: Gets the console output of a specific job run
+        # GetJobConsoleOutput: Gets the console output of a specific job run
         api_response = api_instance.get_job_console_output(run_id)
         pprint(api_response)
 
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 # **get_run_history**
 > JobRunResult get_run_history(run_id)
 
-[EXPERIMENTAL] GetRunHistory: Get the history for a single job run
+GetRunHistory: Get the history for a single job run
 
 ### Example
 
@@ -446,7 +446,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.get_run_history(run_id, opts=opts)
 
-        # [EXPERIMENTAL] GetRunHistory: Get the history for a single job run
+        # GetRunHistory: Get the history for a single job run
         api_response = api_instance.get_run_history(run_id)
         pprint(api_response)
 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 # **get_schedules_for_a_job**
 > ResourceListOfScheduleDefinition get_schedules_for_a_job(scope, code)
 
-[EXPERIMENTAL] GetSchedulesForAJob: Get all the schedules for a single job
+GetSchedulesForAJob: Get all the schedules for a single job
 
 ### Example
 
@@ -537,7 +537,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.get_schedules_for_a_job(scope, code, opts=opts)
 
-        # [EXPERIMENTAL] GetSchedulesForAJob: Get all the schedules for a single job
+        # GetSchedulesForAJob: Get all the schedules for a single job
         api_response = api_instance.get_schedules_for_a_job(scope, code)
         pprint(api_response)
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 # **list_jobs**
 > ResourceListOfJobDefinition list_jobs(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListJobs: List the available jobs
+ListJobs: List the available jobs
 
 ### Example
 
@@ -632,7 +632,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.list_jobs(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-        # [EXPERIMENTAL] ListJobs: List the available jobs
+        # ListJobs: List the available jobs
         api_response = api_instance.list_jobs(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
 
@@ -772,7 +772,7 @@ Name | Type | Description  | Notes
 # **update_job**
 > JobDefinition update_job(scope, code, update_job_request)
 
-[EXPERIMENTAL] UpdateJob: Update a JobDefinition
+UpdateJob: Update a JobDefinition
 
 ### Example
 
@@ -832,7 +832,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.update_job(scope, code, update_job_request, opts=opts)
 
-        # [EXPERIMENTAL] UpdateJob: Update a JobDefinition
+        # UpdateJob: Update a JobDefinition
         api_response = api_instance.update_job(scope, code, update_job_request)
         pprint(api_response)
 

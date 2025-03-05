@@ -70,7 +70,7 @@ class JobsApi:
 
     @validate_arguments
     def create_job(self, create_job_request : Annotated[CreateJobRequest, Field(..., description="The request to create a new job")], async_req: Optional[bool]=None, **kwargs) -> Union[JobDefinition, Awaitable[JobDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] CreateJob: Create a new job  # noqa: E501
+        """CreateJob: Create a new job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -100,7 +100,7 @@ class JobsApi:
 
     @validate_arguments
     def create_job_with_http_info(self, create_job_request : Annotated[CreateJobRequest, Field(..., description="The request to create a new job")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] CreateJob: Create a new job  # noqa: E501
+        """CreateJob: Create a new job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -227,7 +227,7 @@ class JobsApi:
 
     @validate_arguments
     def delete_job(self, scope : Annotated[StrictStr, Field(..., description="The scope of the job")], code : Annotated[StrictStr, Field(..., description="The code of the job")], async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfScheduleDefinition, Awaitable[ResourceListOfScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] DeleteJob: Delete a job  # noqa: E501
+        """DeleteJob: Delete a job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -259,7 +259,7 @@ class JobsApi:
 
     @validate_arguments
     def delete_job_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="The scope of the job")], code : Annotated[StrictStr, Field(..., description="The code of the job")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] DeleteJob: Delete a job  # noqa: E501
+        """DeleteJob: Delete a job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -385,7 +385,7 @@ class JobsApi:
 
     @validate_arguments
     def get_history(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[StrictInt], Field(description="This field is obsolete, the value of this field would not be considered.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfJobHistory, Awaitable[ResourceListOfJobHistory]]:  # noqa: E501
-        """[EXPERIMENTAL] GetHistory: Get the history of job runs  # noqa: E501
+        """GetHistory: Get the history of job runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -423,7 +423,7 @@ class JobsApi:
 
     @validate_arguments
     def get_history_with_http_info(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[StrictInt], Field(description="This field is obsolete, the value of this field would not be considered.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] GetHistory: Get the history of job runs  # noqa: E501
+        """GetHistory: Get the history of job runs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -568,7 +568,7 @@ class JobsApi:
 
     @validate_arguments
     def get_job_console_output(self, run_id : Annotated[StrictStr, Field(..., description="The RunId of the job run")], async_req: Optional[bool]=None, **kwargs) -> Union[str, Awaitable[str]]:  # noqa: E501
-        """[EXPERIMENTAL] GetJobConsoleOutput: Gets the console output of a specific job run  # noqa: E501
+        """GetJobConsoleOutput: Gets the console output of a specific job run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -598,7 +598,7 @@ class JobsApi:
 
     @validate_arguments
     def get_job_console_output_with_http_info(self, run_id : Annotated[StrictStr, Field(..., description="The RunId of the job run")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] GetJobConsoleOutput: Gets the console output of a specific job run  # noqa: E501
+        """GetJobConsoleOutput: Gets the console output of a specific job run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -718,7 +718,7 @@ class JobsApi:
 
     @validate_arguments
     def get_run_history(self, run_id : Annotated[StrictStr, Field(..., description="The unique ID of the run")], async_req: Optional[bool]=None, **kwargs) -> Union[JobRunResult, Awaitable[JobRunResult]]:  # noqa: E501
-        """[EXPERIMENTAL] GetRunHistory: Get the history for a single job run  # noqa: E501
+        """GetRunHistory: Get the history for a single job run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -748,7 +748,7 @@ class JobsApi:
 
     @validate_arguments
     def get_run_history_with_http_info(self, run_id : Annotated[StrictStr, Field(..., description="The unique ID of the run")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] GetRunHistory: Get the history for a single job run  # noqa: E501
+        """GetRunHistory: Get the history for a single job run  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -868,7 +868,7 @@ class JobsApi:
 
     @validate_arguments
     def get_schedules_for_a_job(self, scope : Annotated[StrictStr, Field(..., description="The scope of the job")], code : Annotated[StrictStr, Field(..., description="The code of the job")], async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfScheduleDefinition, Awaitable[ResourceListOfScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] GetSchedulesForAJob: Get all the schedules for a single job  # noqa: E501
+        """GetSchedulesForAJob: Get all the schedules for a single job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -900,7 +900,7 @@ class JobsApi:
 
     @validate_arguments
     def get_schedules_for_a_job_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="The scope of the job")], code : Annotated[StrictStr, Field(..., description="The code of the job")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] GetSchedulesForAJob: Get all the schedules for a single job  # noqa: E501
+        """GetSchedulesForAJob: Get all the schedules for a single job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1026,7 +1026,7 @@ class JobsApi:
 
     @validate_arguments
     def list_jobs(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfJobDefinition, Awaitable[ResourceListOfJobDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] ListJobs: List the available jobs  # noqa: E501
+        """ListJobs: List the available jobs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1064,7 +1064,7 @@ class JobsApi:
 
     @validate_arguments
     def list_jobs_with_http_info(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] ListJobs: List the available jobs  # noqa: E501
+        """ListJobs: List the available jobs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1382,7 +1382,7 @@ class JobsApi:
 
     @validate_arguments
     def update_job(self, scope : Annotated[StrictStr, Field(...)], code : Annotated[StrictStr, Field(...)], update_job_request : UpdateJobRequest, async_req: Optional[bool]=None, **kwargs) -> Union[JobDefinition, Awaitable[JobDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] UpdateJob: Update a JobDefinition  # noqa: E501
+        """UpdateJob: Update a JobDefinition  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1416,7 +1416,7 @@ class JobsApi:
 
     @validate_arguments
     def update_job_with_http_info(self, scope : Annotated[StrictStr, Field(...)], code : Annotated[StrictStr, Field(...)], update_job_request : UpdateJobRequest, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] UpdateJob: Update a JobDefinition  # noqa: E501
+        """UpdateJob: Update a JobDefinition  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

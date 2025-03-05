@@ -4,19 +4,19 @@ All URIs are relative to *https://fbn-prd.lusid.com/scheduler2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_schedule**](SchedulesApi.md#create_schedule) | **POST** /api/schedules | [EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
-[**delete_schedule**](SchedulesApi.md#delete_schedule) | **DELETE** /api/schedules/{scope}/{code} | [EXPERIMENTAL] DeleteSchedule: Delete a schedule
-[**enabled_schedule**](SchedulesApi.md#enabled_schedule) | **PUT** /api/schedules/{scope}/{code}/enabled | [EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule
-[**get_schedule**](SchedulesApi.md#get_schedule) | **GET** /api/schedules/{scope}/{code} | [EXPERIMENTAL] GetSchedule: Get a single Schedule
-[**list_schedules**](SchedulesApi.md#list_schedules) | **GET** /api/schedules | [EXPERIMENTAL] ListSchedules: List the available Schedules
-[**run_schedule**](SchedulesApi.md#run_schedule) | **POST** /api/schedules/{scope}/{code}/$run | [EXPERIMENTAL] RunSchedule: Run a schedule immediately
-[**update_schedule**](SchedulesApi.md#update_schedule) | **PUT** /api/schedules/{scope}/{code} | [EXPERIMENTAL] UpdateSchedule: Update a schedule.
+[**create_schedule**](SchedulesApi.md#create_schedule) | **POST** /api/schedules | CreateSchedule: Create a Schedule for a job
+[**delete_schedule**](SchedulesApi.md#delete_schedule) | **DELETE** /api/schedules/{scope}/{code} | DeleteSchedule: Delete a schedule
+[**enabled_schedule**](SchedulesApi.md#enabled_schedule) | **PUT** /api/schedules/{scope}/{code}/enabled | EnabledSchedule: Enable/disable a schedule
+[**get_schedule**](SchedulesApi.md#get_schedule) | **GET** /api/schedules/{scope}/{code} | GetSchedule: Get a single Schedule
+[**list_schedules**](SchedulesApi.md#list_schedules) | **GET** /api/schedules | ListSchedules: List the available Schedules
+[**run_schedule**](SchedulesApi.md#run_schedule) | **POST** /api/schedules/{scope}/{code}/$run | RunSchedule: Run a schedule immediately
+[**update_schedule**](SchedulesApi.md#update_schedule) | **PUT** /api/schedules/{scope}/{code} | UpdateSchedule: Update a schedule.
 
 
 # **create_schedule**
 > ScheduleDefinition create_schedule(create_schedule_request)
 
-[EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
+CreateSchedule: Create a Schedule for a job
 
 ### Example
 
@@ -74,7 +74,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.create_schedule(create_schedule_request, opts=opts)
 
-        # [EXPERIMENTAL] CreateSchedule: Create a Schedule for a job
+        # CreateSchedule: Create a Schedule for a job
         api_response = api_instance.create_schedule(create_schedule_request)
         pprint(api_response)
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 # **delete_schedule**
 > delete_schedule(scope, code)
 
-[EXPERIMENTAL] DeleteSchedule: Delete a schedule
+DeleteSchedule: Delete a schedule
 
 ### Example
 
@@ -165,7 +165,7 @@ def main():
         # uncomment the below to set overrides at the request level
         #  api_instance.delete_schedule(scope, code, opts=opts)
 
-        # [EXPERIMENTAL] DeleteSchedule: Delete a schedule
+        # DeleteSchedule: Delete a schedule
         api_instance.delete_schedule(scope, code)
     except ApiException as e:
         print("Exception when calling SchedulesApi->delete_schedule: %s\n" % e)
@@ -201,7 +201,7 @@ void (empty response body)
 # **enabled_schedule**
 > ScheduleDefinition enabled_schedule(scope, code, enable)
 
-[EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule
+EnabledSchedule: Enable/disable a schedule
 
 ### Example
 
@@ -256,7 +256,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.enabled_schedule(scope, code, enable, opts=opts)
 
-        # [EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule
+        # EnabledSchedule: Enable/disable a schedule
         api_response = api_instance.enabled_schedule(scope, code, enable)
         pprint(api_response)
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 # **get_schedule**
 > ScheduleDefinition get_schedule(scope, code)
 
-[EXPERIMENTAL] GetSchedule: Get a single Schedule
+GetSchedule: Get a single Schedule
 
 ### Example
 
@@ -349,7 +349,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.get_schedule(scope, code, opts=opts)
 
-        # [EXPERIMENTAL] GetSchedule: Get a single Schedule
+        # GetSchedule: Get a single Schedule
         api_response = api_instance.get_schedule(scope, code)
         pprint(api_response)
 
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
 # **list_schedules**
 > ResourceListOfScheduleDefinition list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
 
-[EXPERIMENTAL] ListSchedules: List the available Schedules
+ListSchedules: List the available Schedules
 
 ### Example
 
@@ -444,7 +444,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter, opts=opts)
 
-        # [EXPERIMENTAL] ListSchedules: List the available Schedules
+        # ListSchedules: List the available Schedules
         api_response = api_instance.list_schedules(page=page, sort_by=sort_by, start=start, limit=limit, filter=filter)
         pprint(api_response)
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 # **run_schedule**
 > StartScheduleResponse run_schedule(scope, code)
 
-[EXPERIMENTAL] RunSchedule: Run a schedule immediately
+RunSchedule: Run a schedule immediately
 
 ### Example
 
@@ -539,7 +539,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.run_schedule(scope, code, opts=opts)
 
-        # [EXPERIMENTAL] RunSchedule: Run a schedule immediately
+        # RunSchedule: Run a schedule immediately
         api_response = api_instance.run_schedule(scope, code)
         pprint(api_response)
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 # **update_schedule**
 > ScheduleDefinition update_schedule(scope, code, update_schedule_request)
 
-[EXPERIMENTAL] UpdateSchedule: Update a schedule.
+UpdateSchedule: Update a schedule.
 
 ### Example
 
@@ -637,7 +637,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.update_schedule(scope, code, update_schedule_request, opts=opts)
 
-        # [EXPERIMENTAL] UpdateSchedule: Update a schedule.
+        # UpdateSchedule: Update a schedule.
         api_response = api_instance.update_schedule(scope, code, update_schedule_request)
         pprint(api_response)
 

@@ -66,7 +66,7 @@ class SchedulesApi:
 
     @validate_arguments
     def create_schedule(self, create_schedule_request : CreateScheduleRequest, async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] CreateSchedule: Create a Schedule for a job  # noqa: E501
+        """CreateSchedule: Create a Schedule for a job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -96,7 +96,7 @@ class SchedulesApi:
 
     @validate_arguments
     def create_schedule_with_http_info(self, create_schedule_request : CreateScheduleRequest, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] CreateSchedule: Create a Schedule for a job  # noqa: E501
+        """CreateSchedule: Create a Schedule for a job  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -223,7 +223,7 @@ class SchedulesApi:
 
     @validate_arguments
     def delete_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be deleted")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be deleted")], async_req: Optional[bool]=None, **kwargs) -> Union[None, Awaitable[None]]:  # noqa: E501
-        """[EXPERIMENTAL] DeleteSchedule: Delete a schedule  # noqa: E501
+        """DeleteSchedule: Delete a schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -255,7 +255,7 @@ class SchedulesApi:
 
     @validate_arguments
     def delete_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be deleted")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be deleted")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] DeleteSchedule: Delete a schedule  # noqa: E501
+        """DeleteSchedule: Delete a schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -378,7 +378,7 @@ class SchedulesApi:
 
     @validate_arguments
     def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(..., description="Specify whether to enable or disable the schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule  # noqa: E501
+        """EnabledSchedule: Enable/disable a schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -412,7 +412,7 @@ class SchedulesApi:
 
     @validate_arguments
     def enabled_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(..., description="Specify whether to enable or disable the schedule")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] EnabledSchedule: Enable/disable a schedule  # noqa: E501
+        """EnabledSchedule: Enable/disable a schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -544,7 +544,7 @@ class SchedulesApi:
 
     @validate_arguments
     def get_schedule(self, scope : Annotated[StrictStr, Field(..., description="The scope of Schedule")], code : Annotated[StrictStr, Field(..., description="The code of the Schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] GetSchedule: Get a single Schedule  # noqa: E501
+        """GetSchedule: Get a single Schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -576,7 +576,7 @@ class SchedulesApi:
 
     @validate_arguments
     def get_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="The scope of Schedule")], code : Annotated[StrictStr, Field(..., description="The code of the Schedule")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] GetSchedule: Get a single Schedule  # noqa: E501
+        """GetSchedule: Get a single Schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -702,7 +702,7 @@ class SchedulesApi:
 
     @validate_arguments
     def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfScheduleDefinition, Awaitable[ResourceListOfScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] ListSchedules: List the available Schedules  # noqa: E501
+        """ListSchedules: List the available Schedules  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -740,7 +740,7 @@ class SchedulesApi:
 
     @validate_arguments
     def list_schedules_with_http_info(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.              This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields              must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] ListSchedules: List the available Schedules  # noqa: E501
+        """ListSchedules: List the available Schedules  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -885,7 +885,7 @@ class SchedulesApi:
 
     @validate_arguments
     def run_schedule(self, scope : Annotated[StrictStr, Field(..., description="The schedule scope")], code : Annotated[StrictStr, Field(..., description="The schedule cde")], async_req: Optional[bool]=None, **kwargs) -> Union[StartScheduleResponse, Awaitable[StartScheduleResponse]]:  # noqa: E501
-        """[EXPERIMENTAL] RunSchedule: Run a schedule immediately  # noqa: E501
+        """RunSchedule: Run a schedule immediately  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -917,7 +917,7 @@ class SchedulesApi:
 
     @validate_arguments
     def run_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="The schedule scope")], code : Annotated[StrictStr, Field(..., description="The schedule cde")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] RunSchedule: Run a schedule immediately  # noqa: E501
+        """RunSchedule: Run a schedule immediately  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1043,7 +1043,7 @@ class SchedulesApi:
 
     @validate_arguments
     def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(..., description="The updated schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
-        """[EXPERIMENTAL] UpdateSchedule: Update a schedule.  # noqa: E501
+        """UpdateSchedule: Update a schedule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1077,7 +1077,7 @@ class SchedulesApi:
 
     @validate_arguments
     def update_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(..., description="The updated schedule")], **kwargs) -> ApiResponse:  # noqa: E501
-        """[EXPERIMENTAL] UpdateSchedule: Update a schedule.  # noqa: E501
+        """UpdateSchedule: Update a schedule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
