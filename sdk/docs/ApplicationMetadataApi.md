@@ -4,13 +4,13 @@ All URIs are relative to *https://fbn-prd.lusid.com/scheduler2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list_access_controlled_resources**](ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | [EXPERIMENTAL] ListAccessControlledResources: Get resources available for access control
+[**list_access_controlled_resources**](ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
 
 
 # **list_access_controlled_resources**
 > ResourceListOfAccessControlledResource list_access_controlled_resources()
 
-[EXPERIMENTAL] ListAccessControlledResources: Get resources available for access control
+ListAccessControlledResources: Get resources available for access control
 
 Get the comprehensive set of resources that are available for access control
 
@@ -64,7 +64,7 @@ def main():
         # uncomment the below to set overrides at the request level
         # api_response =  api_instance.list_access_controlled_resources(opts=opts)
 
-        # [EXPERIMENTAL] ListAccessControlledResources: Get resources available for access control
+        # ListAccessControlledResources: Get resources available for access control
         api_response = api_instance.list_access_controlled_resources()
         pprint(api_response)
 
