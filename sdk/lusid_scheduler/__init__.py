@@ -57,6 +57,7 @@ from lusid_scheduler.models.resource_list_of_job_definition import ResourceListO
 from lusid_scheduler.models.resource_list_of_job_history import ResourceListOfJobHistory
 from lusid_scheduler.models.resource_list_of_repository import ResourceListOfRepository
 from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
+from lusid_scheduler.models.resource_list_of_string import ResourceListOfString
 from lusid_scheduler.models.scan_report import ScanReport
 from lusid_scheduler.models.scan_summary import ScanSummary
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
@@ -116,6 +117,7 @@ __all__ = [
     "ResourceListOfJobHistory",
     "ResourceListOfRepository",
     "ResourceListOfScheduleDefinition",
+    "ResourceListOfString",
     "ScanReport",
     "ScanSummary",
     "ScheduleDefinition",
