@@ -1,7 +1,6 @@
 # Image
 
 Represents the metadata of an image
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,24 +11,23 @@ Name | Type | Description | Notes
 **size** | **int** | The size of the image (in bytes) | [optional] 
 **tags** | [**List[Tag]**](Tag.md) | The tags of the image | [optional] 
 **scan_report** | [**ScanReport**](ScanReport.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.image import Image
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from datetime import datetime
+name: Optional[StrictStr] = "example_name"
+push_time: Optional[datetime] = # Replace with your value
+pull_time: Optional[datetime] = # Replace with your value
+digest: Optional[StrictStr] = "example_digest"
+size: Optional[StrictInt] = # Replace with your value
+tags: Optional[conlist(Tag)] = # Replace with your value
+scan_report: Optional[ScanReport] = # Replace with your value
+image_instance = Image(name=name, push_time=push_time, pull_time=pull_time, digest=digest, size=size, tags=tags, scan_report=scan_report)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of Image from a JSON string
-image_instance = Image.from_json(json)
-# print the JSON string representation of the object
-print Image.to_json()
-
-# convert the object into a dict
-image_dict = image_instance.to_dict()
-# create an instance of Image from a dict
-image_form_dict = image.from_dict(image_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

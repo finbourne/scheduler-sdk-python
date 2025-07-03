@@ -1,7 +1,6 @@
 # Repository
 
 An object representation of a repository
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,24 +12,24 @@ Name | Type | Description | Notes
 **image_count** | **int** | The number of versions of this image | [optional] 
 **images** | [**Link**](Link.md) |  | [optional] 
 **links** | [**List[Link]**](Link.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.repository import Repository
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from datetime import datetime
+name: Optional[StrictStr] = "example_name"
+creation_time: Optional[datetime] = # Replace with your value
+last_update: Optional[datetime] = # Replace with your value
+description: Optional[StrictStr] = "example_description"
+pull_count: Optional[StrictInt] = # Replace with your value
+image_count: Optional[StrictInt] = # Replace with your value
+images: Optional[Link] = None
+links: Optional[conlist(Link)] = None
+repository_instance = Repository(name=name, creation_time=creation_time, last_update=last_update, description=description, pull_count=pull_count, image_count=image_count, images=images, links=links)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of Repository from a JSON string
-repository_instance = Repository.from_json(json)
-# print the JSON string representation of the object
-print Repository.to_json()
-
-# convert the object into a dict
-repository_dict = repository_instance.to_dict()
-# create an instance of Repository from a dict
-repository_form_dict = repository.from_dict(repository_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

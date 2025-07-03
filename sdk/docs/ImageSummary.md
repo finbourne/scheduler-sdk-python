@@ -1,7 +1,6 @@
 # ImageSummary
 
 Represents the metadata of an image
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,24 +13,25 @@ Name | Type | Description | Notes
 **scan_status** | **str** | The Scan Status of the stated image | [optional] 
 **scan_summary** | [**ScanSummary**](ScanSummary.md) |  | [optional] 
 **link** | [**Link**](Link.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.image_summary import ImageSummary
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from datetime import datetime
+name: Optional[StrictStr] = "example_name"
+push_time: Optional[datetime] = # Replace with your value
+pull_time: Optional[datetime] = # Replace with your value
+digest: Optional[StrictStr] = "example_digest"
+size: Optional[StrictInt] = # Replace with your value
+tags: Optional[conlist(Tag)] = # Replace with your value
+scan_status: Optional[StrictStr] = "example_scan_status"
+scan_summary: Optional[ScanSummary] = # Replace with your value
+link: Optional[Link] = None
+image_summary_instance = ImageSummary(name=name, push_time=push_time, pull_time=pull_time, digest=digest, size=size, tags=tags, scan_status=scan_status, scan_summary=scan_summary, link=link)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ImageSummary from a JSON string
-image_summary_instance = ImageSummary.from_json(json)
-# print the JSON string representation of the object
-print ImageSummary.to_json()
-
-# convert the object into a dict
-image_summary_dict = image_summary_instance.to_dict()
-# create an instance of ImageSummary from a dict
-image_summary_form_dict = image_summary.from_dict(image_summary_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

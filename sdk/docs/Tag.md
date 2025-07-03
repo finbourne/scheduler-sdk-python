@@ -1,7 +1,6 @@
 # Tag
 
 Represents data of an image's tag
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,24 +9,23 @@ Name | Type | Description | Notes
 **push_time** | **datetime** | The date of the tag&#39;s push | [optional] 
 **signed** | **bool** | Indicates whether the tag is signed | [optional] 
 **immutable** | **bool** | Indicates whether the tag is immutable | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.tag import Tag
+from typing import Any, Dict, Optional
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr
+from datetime import datetime
+name: Optional[StrictStr] = "example_name"
+pull_time: Optional[datetime] = # Replace with your value
+push_time: Optional[datetime] = # Replace with your value
+signed: Optional[StrictBool] = # Replace with your value
+signed:Optional[StrictBool] = None
+immutable: Optional[StrictBool] = # Replace with your value
+immutable:Optional[StrictBool] = None
+tag_instance = Tag(name=name, pull_time=pull_time, push_time=push_time, signed=signed, immutable=immutable)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of Tag from a JSON string
-tag_instance = Tag.from_json(json)
-# print the JSON string representation of the object
-print Tag.to_json()
-
-# convert the object into a dict
-tag_dict = tag_instance.to_dict()
-# create an instance of Tag from a dict
-tag_form_dict = tag.from_dict(tag_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

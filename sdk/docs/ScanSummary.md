@@ -1,7 +1,6 @@
 # ScanSummary
 
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -13,24 +12,32 @@ Name | Type | Description | Notes
 **low** | **int** | The number of Low severity vulnerabilities | [optional] 
 **negligible** | **int** | The number of Negligible severity vulnerabilities | [optional] 
 **unknown** | **int** | The number of Unknown severity vulnerabilities | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.scan_summary import ScanSummary
+from typing import Any, Dict, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ScanSummary from a JSON string
-scan_summary_instance = ScanSummary.from_json(json)
-# print the JSON string representation of the object
-print ScanSummary.to_json()
+fixable: Optional[StrictInt] = # Replace with your value
+fixable: Optional[StrictInt] = None
+total: Optional[StrictInt] = # Replace with your value
+total: Optional[StrictInt] = None
+critical: Optional[StrictInt] = # Replace with your value
+critical: Optional[StrictInt] = None
+high: Optional[StrictInt] = # Replace with your value
+high: Optional[StrictInt] = None
+medium: Optional[StrictInt] = # Replace with your value
+medium: Optional[StrictInt] = None
+low: Optional[StrictInt] = # Replace with your value
+low: Optional[StrictInt] = None
+negligible: Optional[StrictInt] = # Replace with your value
+negligible: Optional[StrictInt] = None
+unknown: Optional[StrictInt] = # Replace with your value
+unknown: Optional[StrictInt] = None
+scan_summary_instance = ScanSummary(fixable=fixable, total=total, critical=critical, high=high, medium=medium, low=low, negligible=negligible, unknown=unknown)
 
-# convert the object into a dict
-scan_summary_dict = scan_summary_instance.to_dict()
-# create an instance of ScanSummary from a dict
-scan_summary_form_dict = scan_summary.from_dict(scan_summary_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

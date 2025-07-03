@@ -1,7 +1,6 @@
 # JobDefinition
 
 Definition of a job
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -19,24 +18,31 @@ Name | Type | Description | Notes
 **argument_definitions** | [**Dict[str, ArgumentDefinition]**](ArgumentDefinition.md) | All arguments for this job to run | [optional] 
 **command_line_argument_separator** | **str** | Value to separate command line arguments  e.g : If a job has a command line argument named &#39;folder&#39; and the runtime value is &#39;s3://path&#39; then this  would be supplied to the command as &#39;folder{separatorValue}s3://path&#39;  Default to a space | [optional] 
 **required_resources** | [**RequiredResources**](RequiredResources.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.job_definition import JobDefinition
+from typing import Any, Dict, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr
+from datetime import datetime
+job_id: ResourceId = # Replace with your value
+name: Optional[StrictStr] = "example_name"
+author: Optional[StrictStr] = "example_author"
+date_created: Optional[datetime] = # Replace with your value
+description: Optional[StrictStr] = "example_description"
+docker_image: Optional[StrictStr] = "example_docker_image"
+ttl: Optional[StrictInt] = # Replace with your value
+ttl: Optional[StrictInt] = None
+min_cpu: Optional[StrictStr] = "example_min_cpu"
+max_cpu: Optional[StrictStr] = "example_max_cpu"
+min_memory: Optional[StrictStr] = "example_min_memory"
+max_memory: Optional[StrictStr] = "example_max_memory"
+argument_definitions: Optional[Dict[str, ArgumentDefinition]] = # Replace with your value
+command_line_argument_separator: Optional[StrictStr] = "example_command_line_argument_separator"
+required_resources: Optional[RequiredResources] = # Replace with your value
+job_definition_instance = JobDefinition(job_id=job_id, name=name, author=author, date_created=date_created, description=description, docker_image=docker_image, ttl=ttl, min_cpu=min_cpu, max_cpu=max_cpu, min_memory=min_memory, max_memory=max_memory, argument_definitions=argument_definitions, command_line_argument_separator=command_line_argument_separator, required_resources=required_resources)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of JobDefinition from a JSON string
-job_definition_instance = JobDefinition.from_json(json)
-# print the JSON string representation of the object
-print JobDefinition.to_json()
-
-# convert the object into a dict
-job_definition_dict = job_definition_instance.to_dict()
-# create an instance of JobDefinition from a dict
-job_definition_form_dict = job_definition.from_dict(job_definition_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -1,7 +1,6 @@
 # ScheduleDefinition
 
 Schedule
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -16,24 +15,28 @@ Name | Type | Description | Notes
 **trigger** | [**Trigger**](Trigger.md) |  | [optional] 
 **notifications** | [**List[Notification]**](Notification.md) | Notifications for this Schedule | [optional] 
 **enabled** | **bool** | The status of this schedule | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ScheduleDefinition from a JSON string
-schedule_definition_instance = ScheduleDefinition.from_json(json)
-# print the JSON string representation of the object
-print ScheduleDefinition.to_json()
+schedule_identifier: ResourceId = # Replace with your value
+job_id: Optional[ResourceId] = # Replace with your value
+name: Optional[StrictStr] = "example_name"
+description: Optional[StrictStr] = "example_description"
+author: Optional[StrictStr] = "example_author"
+owner: Optional[StrictStr] = "example_owner"
+use_as_auth: Optional[StrictStr] = "example_use_as_auth"
+arguments: Optional[Dict[str, StrictStr]] = # Replace with your value
+trigger: Optional[Trigger] = None
+notifications: Optional[conlist(Notification)] = # Replace with your value
+enabled: Optional[StrictBool] = # Replace with your value
+enabled:Optional[StrictBool] = None
+schedule_definition_instance = ScheduleDefinition(schedule_identifier=schedule_identifier, job_id=job_id, name=name, description=description, author=author, owner=owner, use_as_auth=use_as_auth, arguments=arguments, trigger=trigger, notifications=notifications, enabled=enabled)
 
-# convert the object into a dict
-schedule_definition_dict = schedule_definition_instance.to_dict()
-# create an instance of ScheduleDefinition from a dict
-schedule_definition_form_dict = schedule_definition.from_dict(schedule_definition_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

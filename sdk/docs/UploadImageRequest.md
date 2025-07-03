@@ -1,29 +1,21 @@
 # UploadImageRequest
 
 Request to upload image for Scheduler use
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **image_name** | **str** | Name of the image to be uploaded | 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.upload_image_request import UploadImageRequest
+from typing import Any, Dict
+from pydantic.v1 import BaseModel, Field, constr, validator
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of UploadImageRequest from a JSON string
-upload_image_request_instance = UploadImageRequest.from_json(json)
-# print the JSON string representation of the object
-print UploadImageRequest.to_json()
+image_name: StrictStr = "example_image_name"
+upload_image_request_instance = UploadImageRequest(image_name=image_name)
 
-# convert the object into a dict
-upload_image_request_dict = upload_image_request_instance.to_dict()
-# create an instance of UploadImageRequest from a dict
-upload_image_request_form_dict = upload_image_request.from_dict(upload_image_request_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

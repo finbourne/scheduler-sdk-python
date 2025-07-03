@@ -1,31 +1,25 @@
 # RequiredResources
 
 Information related to a jobs required access to resources
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lusid_apis** | **List[str]** | List of LUSID APIs the job needs access to | [optional] 
 **lusid_file_system** | **List[str]** | List of S3 bucket or folder names that the job can access | [optional] 
 **external_calls** | **List[str]** | External URLs that the job can call | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.required_resources import RequiredResources
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of RequiredResources from a JSON string
-required_resources_instance = RequiredResources.from_json(json)
-# print the JSON string representation of the object
-print RequiredResources.to_json()
+lusid_apis: Optional[conlist(StrictStr)] = # Replace with your value
+lusid_file_system: Optional[conlist(StrictStr)] = # Replace with your value
+external_calls: Optional[conlist(StrictStr)] = # Replace with your value
+required_resources_instance = RequiredResources(lusid_apis=lusid_apis, lusid_file_system=lusid_file_system, external_calls=external_calls)
 
-# convert the object into a dict
-required_resources_dict = required_resources_instance.to_dict()
-# create an instance of RequiredResources from a dict
-required_resources_form_dict = required_resources.from_dict(required_resources_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

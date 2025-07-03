@@ -1,7 +1,6 @@
 # UpdateJobRequest
 
 A request to update a job
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -18,24 +17,30 @@ Name | Type | Description | Notes
 **argument_definitions** | [**Dict[str, ArgumentDefinition]**](ArgumentDefinition.md) | All arguments for this job to run | 
 **command_line_argument_separator** | **str** | Value to separate command line arguments  e.g : If a job has a command line argument named &#39;folder&#39; and the runtime value is &#39;s3://path&#39; then this  would be supplied to the command as &#39;folder{separatorValue}s3://path&#39;  Default to a space | [optional] 
 **required_resources** | [**RequiredResources**](RequiredResources.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.update_job_request import UpdateJobRequest
+from typing import Any, Dict, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, constr, validator
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of UpdateJobRequest from a JSON string
-update_job_request_instance = UpdateJobRequest.from_json(json)
-# print the JSON string representation of the object
-print UpdateJobRequest.to_json()
+name: StrictStr = "example_name"
+author: Optional[StrictStr] = "example_author"
+description: StrictStr = "example_description"
+image_name: StrictStr = "example_image_name"
+image_tag: StrictStr = "example_image_tag"
+ttl: Optional[StrictInt] = # Replace with your value
+ttl: Optional[StrictInt] = None
+min_cpu: Optional[StrictStr] = "example_min_cpu"
+max_cpu: Optional[StrictStr] = "example_max_cpu"
+min_memory: Optional[StrictStr] = "example_min_memory"
+max_memory: Optional[StrictStr] = "example_max_memory"
+argument_definitions: Dict[str, ArgumentDefinition] = # Replace with your value
+command_line_argument_separator: Optional[StrictStr] = "example_command_line_argument_separator"
+required_resources: Optional[RequiredResources] = # Replace with your value
+update_job_request_instance = UpdateJobRequest(name=name, author=author, description=description, image_name=image_name, image_tag=image_tag, ttl=ttl, min_cpu=min_cpu, max_cpu=max_cpu, min_memory=min_memory, max_memory=max_memory, argument_definitions=argument_definitions, command_line_argument_separator=command_line_argument_separator, required_resources=required_resources)
 
-# convert the object into a dict
-update_job_request_dict = update_job_request_instance.to_dict()
-# create an instance of UpdateJobRequest from a dict
-update_job_request_form_dict = update_job_request.from_dict(update_job_request_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

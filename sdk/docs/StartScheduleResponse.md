@@ -1,7 +1,6 @@
 # StartScheduleResponse
 
 Response from a manual run of a schedule
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,24 +9,21 @@ Name | Type | Description | Notes
 **run_id** | **str** | Unique RunId of the started schedule | [optional] 
 **status** | **str** | Status of the started schedule | [optional] 
 **result** | **str** | Link to the result of the job run when completed | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.start_schedule_response import StartScheduleResponse
+from typing import Any, Dict, Optional
+from pydantic.v1 import BaseModel, Field, StrictStr
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of StartScheduleResponse from a JSON string
-start_schedule_response_instance = StartScheduleResponse.from_json(json)
-# print the JSON string representation of the object
-print StartScheduleResponse.to_json()
+schedule_id: Optional[ResourceId] = # Replace with your value
+job_id: Optional[ResourceId] = # Replace with your value
+run_id: Optional[StrictStr] = "example_run_id"
+status: Optional[StrictStr] = "example_status"
+result: Optional[StrictStr] = "example_result"
+start_schedule_response_instance = StartScheduleResponse(schedule_id=schedule_id, job_id=job_id, run_id=run_id, status=status, result=result)
 
-# convert the object into a dict
-start_schedule_response_dict = start_schedule_response_instance.to_dict()
-# create an instance of StartScheduleResponse from a dict
-start_schedule_response_form_dict = start_schedule_response.from_dict(start_schedule_response_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

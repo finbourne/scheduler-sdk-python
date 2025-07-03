@@ -1,7 +1,6 @@
 # ScanReport
 
 Represents the details of a security scan of an image
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -12,24 +11,24 @@ Name | Type | Description | Notes
 **scan_duration** | **int** | The duration of the scan in seconds | [optional] 
 **summary** | [**ScanSummary**](ScanSummary.md) |  | [optional] 
 **vulnerabilities** | [**List[Vulnerability]**](Vulnerability.md) | List of Finbourne.Scheduler.WebApi.Dtos.Images.Vulnerability | [optional] 
-
 ## Example
 
 ```python
 from lusid_scheduler.models.scan_report import ScanReport
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from datetime import datetime
+severity: Optional[StrictStr] = "example_severity"
+status: Optional[StrictStr] = "example_status"
+start_time: Optional[datetime] = # Replace with your value
+end_time: Optional[datetime] = # Replace with your value
+scan_duration: Optional[StrictInt] = # Replace with your value
+scan_duration: Optional[StrictInt] = None
+summary: Optional[ScanSummary] = None
+vulnerabilities: Optional[conlist(Vulnerability)] = # Replace with your value
+scan_report_instance = ScanReport(severity=severity, status=status, start_time=start_time, end_time=end_time, scan_duration=scan_duration, summary=summary, vulnerabilities=vulnerabilities)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ScanReport from a JSON string
-scan_report_instance = ScanReport.from_json(json)
-# print the JSON string representation of the object
-print ScanReport.to_json()
-
-# convert the object into a dict
-scan_report_dict = scan_report_instance.to_dict()
-# create an instance of ScanReport from a dict
-scan_report_form_dict = scan_report.from_dict(scan_report_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
