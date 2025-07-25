@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lusid-scheduler-sdk"
-version = "2.1.123"
+version = "2.1.124"
 description = "FINBOURNE Scheduler API"
 authors = ["FINBOURNE Technology <info@finbourne.com>"]
 license = "MIT"
