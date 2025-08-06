@@ -76,6 +76,11 @@ class UploadImageInstructions(BaseModel):
         if self.push_latest_docker_image_command is None and "push_latest_docker_image_command" in self.__fields_set__:
             _dict['pushLatestDockerImageCommand'] = None
 
+        # set to None if expiry_time (nullable) is None
+        # and __fields_set__ contains the field
+        if self.expiry_time is None and "expiry_time" in self.__fields_set__:
+            _dict['expiryTime'] = None
+
         return _dict
 
     @classmethod
