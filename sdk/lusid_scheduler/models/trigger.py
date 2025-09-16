@@ -24,7 +24,7 @@ from lusid_scheduler.models.time_trigger import TimeTrigger
 
 class Trigger(BaseModel):
     """
-    Holds different kinds of triggers  A schedule may only have one type of trigger  # noqa: E501
+    Holds different kinds of triggers A schedule may only have one type of trigger  # noqa: E501
     """
     time_trigger: Optional[TimeTrigger] = Field(None, alias="timeTrigger")
     __properties = ["timeTrigger"]

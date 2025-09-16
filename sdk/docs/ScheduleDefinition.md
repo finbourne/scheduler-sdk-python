@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **description** | **str** | A description of the Schedule | [optional] 
 **author** | **str** | Name of the author of this schedule | [optional] 
 **owner** | **str** | Name of owner of this schedule | [optional] 
-**use_as_auth** | **str** | User to runs schedule when automatically run and authenticates   requests in the schedule | [optional] 
+**use_as_auth** | **str** | User to runs schedule when automatically run and authenticates  requests in the schedule | [optional] 
 **arguments** | **Dict[str, str]** | All arguments specified by this Schedule that will be passed in to the Job | [optional] 
 **trigger** | [**Trigger**](Trigger.md) |  | [optional] 
 **notifications** | [**List[Notification]**](Notification.md) | Notifications for this Schedule | [optional] 

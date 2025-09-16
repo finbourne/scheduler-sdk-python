@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arguments** | **Dict[str, str]** | All arguments needed for the Job to run | [optional] 
 **notifications** | [**List[Notification]**](Notification.md) | Notifications for this Job | [optional] 
-**use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we&#39;ll default to that of the user   making this request | [optional] 
+**use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this  user. Can be null, in which case we&#39;ll default to that of the user  making this request | [optional] 
 ## Example
 
 ```python

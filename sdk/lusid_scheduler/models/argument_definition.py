@@ -30,8 +30,8 @@ class ArgumentDefinition(BaseModel):
     description:  StrictStr = Field(...,alias="description", description="Argument description") 
     order: StrictInt = Field(..., description="The order of the argument")
     constraints:  Optional[StrictStr] = Field(None,alias="constraints", description="Constrains of the argument value") 
-    passed_as:  StrictStr = Field(...,alias="passedAs", description="Specifies how this argument should be passed in  Allowed values are: CommandLine or EnvironmentVariable    Defaults to: CommandLine") 
-    default_value:  Optional[StrictStr] = Field(None,alias="defaultValue", description="Specify a default value for this argument if no value is provided  The value needs to be convertible to the associated data type") 
+    passed_as:  StrictStr = Field(...,alias="passedAs", description="Specifies how this argument should be passed in Allowed values are: CommandLine or EnvironmentVariable  Defaults to: CommandLine") 
+    default_value:  Optional[StrictStr] = Field(None,alias="defaultValue", description="Specify a default value for this argument if no value is provided The value needs to be convertible to the associated data type") 
     __properties = ["dataType", "required", "description", "order", "constraints", "passedAs", "defaultValue"]
 
     class Config:

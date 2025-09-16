@@ -33,11 +33,11 @@ class UpdateScheduleRequest(BaseModel):
     description:  StrictStr = Field(...,alias="description", description="The updated description of the schedule") 
     author:  Optional[StrictStr] = Field(None,alias="author", description="The updated author of the schedule") 
     owner:  Optional[StrictStr] = Field(None,alias="owner", description="The update owner of the schedule") 
-    arguments: Optional[Dict[str, StrictStr]] = Field(None, description="Updated arguments to be passed to the job  Note: The new arguments will completely replace old arguments")
+    arguments: Optional[Dict[str, StrictStr]] = Field(None, description="Updated arguments to be passed to the job Note: The new arguments will completely replace old arguments")
     trigger: Optional[Trigger] = None
     notifications: Optional[conlist(Notification)] = Field(None, description="Updated notifications for this schedule")
-    enabled: Optional[StrictBool] = Field(None, description="Specify whether schedule is enabled or not  Defaults to true")
-    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we'll default to that of the user   making this request") 
+    enabled: Optional[StrictBool] = Field(None, description="Specify whether schedule is enabled or not Defaults to true")
+    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this  user. Can be null, in which case we'll default to that of the user  making this request") 
     __properties = ["jobId", "name", "description", "author", "owner", "arguments", "trigger", "notifications", "enabled", "useAsAuth"]
 
     class Config:

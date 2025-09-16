@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **arguments** | **Dict[str, str]** | All arguments specified by this Schedule that will be passed in to the Job | [optional] 
 **trigger** | [**Trigger**](Trigger.md) |  | [optional] 
 **notifications** | [**List[Notification]**](Notification.md) | Notifications for this Schedule | [optional] 
-**enabled** | **bool** | Specify whether schedule is enabled or not  Defaults to true | [optional] 
-**use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services  as part of execution of this schedule will be authenticated as this   user. Can be null, in which case we&#39;ll default to that of the user   making this request | [optional] 
+**enabled** | **bool** | Specify whether schedule is enabled or not Defaults to true | [optional] 
+**use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this  user. Can be null, in which case we&#39;ll default to that of the user  making this request | [optional] 
 ## Example
 
 ```python

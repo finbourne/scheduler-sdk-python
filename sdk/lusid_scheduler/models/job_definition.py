@@ -34,13 +34,13 @@ class JobDefinition(BaseModel):
     date_created: Optional[datetime] = Field(None, alias="dateCreated", description="Date when job was created")
     description:  Optional[StrictStr] = Field(None,alias="description", description="Description of this job") 
     docker_image:  Optional[StrictStr] = Field(None,alias="dockerImage", description="Information about the docker image in the format “image_source/image_name:image_tag”") 
-    ttl: Optional[StrictInt] = Field(None, description="Time To Live of the job run in seconds  Defaults to 5 minutes(300)")
-    min_cpu:  Optional[StrictStr] = Field(None,alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job  Default to 2") 
+    ttl: Optional[StrictInt] = Field(None, description="Time To Live of the job run in seconds Defaults to 5 minutes(300)")
+    min_cpu:  Optional[StrictStr] = Field(None,alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job Default to 2") 
     max_cpu:  Optional[StrictStr] = Field(None,alias="maxCpu", description="Specifies  maximum number of CPUs to be allocated for the job") 
     min_memory:  Optional[StrictStr] = Field(None,alias="minMemory", description="Specifies the minimum amount of memory (in GiB) to be allocated for the job") 
     max_memory:  Optional[StrictStr] = Field(None,alias="maxMemory", description="Specifies the maximum amount of memory (in GiB) to be allocated for the job") 
     argument_definitions: Optional[Dict[str, ArgumentDefinition]] = Field(None, alias="argumentDefinitions", description="All arguments for this job to run")
-    command_line_argument_separator:  Optional[StrictStr] = Field(None,alias="commandLineArgumentSeparator", description="Value to separate command line arguments  e.g : If a job has a command line argument named 'folder' and the runtime value is 's3://path' then this  would be supplied to the command as 'folder{separatorValue}s3://path'  Default to a space") 
+    command_line_argument_separator:  Optional[StrictStr] = Field(None,alias="commandLineArgumentSeparator", description="Value to separate command line arguments e.g : If a job has a command line argument named 'folder' and the runtime value is 's3://path' then this would be supplied to the command as 'folder{separatorValue}s3://path' Default to a space") 
     required_resources: Optional[RequiredResources] = Field(None, alias="requiredResources")
     __properties = ["jobId", "name", "author", "dateCreated", "description", "dockerImage", "ttl", "minCpu", "maxCpu", "minMemory", "maxMemory", "argumentDefinitions", "commandLineArgumentSeparator", "requiredResources"]
 
