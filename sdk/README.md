@@ -23,7 +23,7 @@ Class | Method | HTTP request | Description
 *SchedulesApi* | [**delete_schedule**](docs/SchedulesApi.md#delete_schedule) | **DELETE** /api/schedules/{scope}/{code} | DeleteSchedule: Delete a schedule
 *SchedulesApi* | [**enabled_schedule**](docs/SchedulesApi.md#enabled_schedule) | **PUT** /api/schedules/{scope}/{code}/enabled | EnabledSchedule: Enable/disable a schedule
 *SchedulesApi* | [**get_schedule**](docs/SchedulesApi.md#get_schedule) | **GET** /api/schedules/{scope}/{code} | GetSchedule: Get a single Schedule
-*SchedulesApi* | [**get_valid_timezones**](docs/SchedulesApi.md#get_valid_timezones) | **GET** /api/schedules/{scope}/{code}/enabled | GetValidTimezones: Get a list of valid timezones
+*SchedulesApi* | [**get_valid_timezones**](docs/SchedulesApi.md#get_valid_timezones) | **GET** /api/schedules/timezones | GetValidTimezones: Get a list of valid timezones
 *SchedulesApi* | [**list_schedules**](docs/SchedulesApi.md#list_schedules) | **GET** /api/schedules | ListSchedules: List the available Schedules
 *SchedulesApi* | [**run_schedule**](docs/SchedulesApi.md#run_schedule) | **POST** /api/schedules/{scope}/{code}/$run | RunSchedule: Run a schedule immediately
 *SchedulesApi* | [**update_schedule**](docs/SchedulesApi.md#update_schedule) | **PUT** /api/schedules/{scope}/{code} | UpdateSchedule: Update a schedule.

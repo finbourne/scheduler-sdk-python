@@ -694,27 +694,23 @@ class SchedulesApi:
 
 
     @overload
-    async def get_valid_timezones(self, scope : Annotated[StrictStr, Field(...)], code : Annotated[StrictStr, Field(...)], **kwargs) -> ResourceListOfString:  # noqa: E501
+    async def get_valid_timezones(self, **kwargs) -> ResourceListOfString:  # noqa: E501
         ...
 
     @overload
-    def get_valid_timezones(self, scope : Annotated[StrictStr, Field(...)], code : Annotated[StrictStr, Field(...)], async_req: Optional[bool]=True, **kwargs) -> ResourceListOfString:  # noqa: E501
+    def get_valid_timezones(self, async_req: Optional[bool]=True, **kwargs) -> ResourceListOfString:  # noqa: E501
         ...
 
     @validate_arguments
-    def get_valid_timezones(self, scope : Annotated[StrictStr, Field(...)], code : Annotated[StrictStr, Field(...)], async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfString, Awaitable[ResourceListOfString]]:  # noqa: E501
+    def get_valid_timezones(self, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfString, Awaitable[ResourceListOfString]]:  # noqa: E501
         """GetValidTimezones: Get a list of valid timezones  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_valid_timezones(scope, code, async_req=True)
+        >>> thread = api.get_valid_timezones(async_req=True)
         >>> result = thread.get()
 
-        :param scope: (required)
-        :type scope: str
-        :param code: (required)
-        :type code: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _request_timeout: Timeout setting. Do not use - use the opts parameter instead
@@ -731,22 +727,18 @@ class SchedulesApi:
             raise ValueError(message)
         if async_req is not None:
             kwargs['async_req'] = async_req
-        return self.get_valid_timezones_with_http_info(scope, code, **kwargs)  # noqa: E501
+        return self.get_valid_timezones_with_http_info(**kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_valid_timezones_with_http_info(self, scope : Annotated[StrictStr, Field(...)], code : Annotated[StrictStr, Field(...)], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_valid_timezones_with_http_info(self, **kwargs) -> ApiResponse:  # noqa: E501
         """GetValidTimezones: Get a list of valid timezones  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_valid_timezones_with_http_info(scope, code, async_req=True)
+        >>> thread = api.get_valid_timezones_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param scope: (required)
-        :type scope: str
-        :param code: (required)
-        :type code: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the ApiResponse.data will
@@ -774,8 +766,6 @@ class SchedulesApi:
         _params = locals()
 
         _all_params = [
-            'scope',
-            'code'
         ]
         _all_params.extend(
             [
@@ -804,12 +794,6 @@ class SchedulesApi:
 
         # process the path parameters
         _path_params = {}
-        if _params['scope']:
-            _path_params['scope'] = _params['scope']
-
-        if _params['code']:
-            _path_params['code'] = _params['code']
-
 
         # process the query parameters
         _query_params = []
@@ -832,7 +816,7 @@ class SchedulesApi:
         }
 
         return self.api_client.call_api(
-            '/api/schedules/{scope}/{code}/enabled', 'GET',
+            '/api/schedules/timezones', 'GET',
             _path_params,
             _query_params,
             _header_params,
