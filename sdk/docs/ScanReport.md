@@ -15,9 +15,11 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.scan_report import ScanReport
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
+
 severity: Optional[StrictStr] = "example_severity"
 status: Optional[StrictStr] = "example_status"
 start_time: Optional[datetime] = # Replace with your value
@@ -25,7 +27,7 @@ end_time: Optional[datetime] = # Replace with your value
 scan_duration: Optional[StrictInt] = # Replace with your value
 scan_duration: Optional[StrictInt] = None
 summary: Optional[ScanSummary] = None
-vulnerabilities: Optional[conlist(Vulnerability)] = # Replace with your value
+vulnerabilities: Optional[List[Vulnerability]] = # Replace with your value
 scan_report_instance = ScanReport(severity=severity, status=status, start_time=start_time, end_time=end_time, scan_duration=scan_duration, summary=summary, vulnerabilities=vulnerabilities)
 
 ```

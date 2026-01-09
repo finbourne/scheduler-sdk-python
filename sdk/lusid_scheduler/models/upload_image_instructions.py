@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, constr 
 
 class UploadImageInstructions(BaseModel):
     """
@@ -31,7 +33,7 @@ class UploadImageInstructions(BaseModel):
     push_versioned_docker_image_command:  StrictStr = Field(...,alias="pushVersionedDockerImageCommand") 
     tag_latest_docker_image_command:  Optional[StrictStr] = Field(None,alias="tagLatestDockerImageCommand") 
     push_latest_docker_image_command:  Optional[StrictStr] = Field(None,alias="pushLatestDockerImageCommand") 
-    expiry_time: Optional[datetime] = Field(None, alias="expiryTime")
+    expiry_time: Optional[datetime] = Field(default=None, alias="expiryTime")
     __properties = ["dockerLoginCommand", "buildVersionedDockerImageCommand", "tagVersionedDockerImageCommand", "pushVersionedDockerImageCommand", "tagLatestDockerImageCommand", "pushLatestDockerImageCommand", "expiryTime"]
 
     class Config:
@@ -102,3 +104,5 @@ class UploadImageInstructions(BaseModel):
             "expiry_time": obj.get("expiryTime")
         })
         return _obj
+
+UploadImageInstructions.update_forward_refs()

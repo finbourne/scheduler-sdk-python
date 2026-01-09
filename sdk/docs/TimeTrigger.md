@@ -10,8 +10,10 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.time_trigger import TimeTrigger
-from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, constr
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 expression: Optional[StrictStr] = "example_expression"
 time_zone: Optional[StrictStr] = "example_time_zone"

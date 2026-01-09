@@ -18,16 +18,18 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conlist 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 class RequiredResources(BaseModel):
     """
     Information related to a jobs required access to resources  # noqa: E501
     """
-    lusid_apis: Optional[conlist(StrictStr)] = Field(None, alias="lusidApis", description="List of LUSID APIs the job needs access to")
-    lusid_file_system: Optional[conlist(StrictStr)] = Field(None, alias="lusidFileSystem", description="List of S3 bucket or folder names that the job can access")
-    external_calls: Optional[conlist(StrictStr)] = Field(None, alias="externalCalls", description="External URLs that the job can call")
+    lusid_apis: Optional[List[StrictStr]] = Field(default=None, description="List of LUSID APIs the job needs access to", alias="lusidApis")
+    lusid_file_system: Optional[List[StrictStr]] = Field(default=None, description="List of S3 bucket or folder names that the job can access", alias="lusidFileSystem")
+    external_calls: Optional[List[StrictStr]] = Field(default=None, description="External URLs that the job can call", alias="externalCalls")
     __properties = ["lusidApis", "lusidFileSystem", "externalCalls"]
 
     class Config:
@@ -94,3 +96,5 @@ class RequiredResources(BaseModel):
             "external_calls": obj.get("externalCalls")
         })
         return _obj
+
+RequiredResources.update_forward_refs()

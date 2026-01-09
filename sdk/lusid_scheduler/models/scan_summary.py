@@ -18,21 +18,23 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictInt 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 class ScanSummary(BaseModel):
     """
       # noqa: E501
     """
-    fixable: Optional[StrictInt] = Field(None, description="The number of vulnerabilities that have a known fix")
-    total: Optional[StrictInt] = Field(None, description="The total number of vulnerabilities")
-    critical: Optional[StrictInt] = Field(None, description="The number of Critical severity vulnerabilities")
-    high: Optional[StrictInt] = Field(None, description="The number of High severity vulnerabilities")
-    medium: Optional[StrictInt] = Field(None, description="The number of Medium severity vulnerabilities")
-    low: Optional[StrictInt] = Field(None, description="The number of Low severity vulnerabilities")
-    negligible: Optional[StrictInt] = Field(None, description="The number of Negligible severity vulnerabilities")
-    unknown: Optional[StrictInt] = Field(None, description="The number of Unknown severity vulnerabilities")
+    fixable: Optional[StrictInt] = Field(default=None, description="The number of vulnerabilities that have a known fix")
+    total: Optional[StrictInt] = Field(default=None, description="The total number of vulnerabilities")
+    critical: Optional[StrictInt] = Field(default=None, description="The number of Critical severity vulnerabilities")
+    high: Optional[StrictInt] = Field(default=None, description="The number of High severity vulnerabilities")
+    medium: Optional[StrictInt] = Field(default=None, description="The number of Medium severity vulnerabilities")
+    low: Optional[StrictInt] = Field(default=None, description="The number of Low severity vulnerabilities")
+    negligible: Optional[StrictInt] = Field(default=None, description="The number of Negligible severity vulnerabilities")
+    unknown: Optional[StrictInt] = Field(default=None, description="The number of Unknown severity vulnerabilities")
     __properties = ["fixable", "total", "critical", "high", "medium", "low", "negligible", "unknown"]
 
     class Config:
@@ -129,3 +131,5 @@ class ScanSummary(BaseModel):
             "unknown": obj.get("unknown")
         })
         return _obj
+
+ScanSummary.update_forward_refs()

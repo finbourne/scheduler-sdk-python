@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictBool, StrictStr, conlist 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 from lusid_scheduler.models.notification import Notification
 from lusid_scheduler.models.resource_id import ResourceId
 from lusid_scheduler.models.trigger import Trigger
@@ -28,17 +30,17 @@ class ScheduleDefinition(BaseModel):
     """
     Schedule  # noqa: E501
     """
-    schedule_identifier: ResourceId = Field(..., alias="scheduleIdentifier")
-    job_id: Optional[ResourceId] = Field(None, alias="jobId")
+    schedule_identifier: ResourceId = Field(alias="scheduleIdentifier")
+    job_id: Optional[ResourceId] = Field(default=None, alias="jobId")
     name:  Optional[StrictStr] = Field(None,alias="name", description="A display name for this Schedule") 
     description:  Optional[StrictStr] = Field(None,alias="description", description="A description of the Schedule") 
     author:  Optional[StrictStr] = Field(None,alias="author", description="Name of the author of this schedule") 
     owner:  Optional[StrictStr] = Field(None,alias="owner", description="Name of owner of this schedule") 
     use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="User to runs schedule when automatically run and authenticates  requests in the schedule") 
-    arguments: Optional[Dict[str, StrictStr]] = Field(None, description="All arguments specified by this Schedule that will be passed in to the Job")
+    arguments: Optional[Dict[str, Optional[StrictStr]]] = Field(default=None, description="All arguments specified by this Schedule that will be passed in to the Job")
     trigger: Optional[Trigger] = None
-    notifications: Optional[conlist(Notification)] = Field(None, description="Notifications for this Schedule")
-    enabled: Optional[StrictBool] = Field(None, description="The status of this schedule")
+    notifications: Optional[List[Notification]] = Field(default=None, description="Notifications for this Schedule")
+    enabled: Optional[StrictBool] = Field(default=None, description="The status of this schedule")
     __properties = ["scheduleIdentifier", "jobId", "name", "description", "author", "owner", "useAsAuth", "arguments", "trigger", "notifications", "enabled"]
 
     class Config:
@@ -149,3 +151,5 @@ class ScheduleDefinition(BaseModel):
             "enabled": obj.get("enabled")
         })
         return _obj
+
+ScheduleDefinition.update_forward_refs()

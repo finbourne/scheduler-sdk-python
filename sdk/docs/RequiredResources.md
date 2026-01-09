@@ -11,12 +11,14 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.required_resources import RequiredResources
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
-lusid_apis: Optional[conlist(StrictStr)] = # Replace with your value
-lusid_file_system: Optional[conlist(StrictStr)] = # Replace with your value
-external_calls: Optional[conlist(StrictStr)] = # Replace with your value
+lusid_apis: Optional[List[StrictStr]] = # Replace with your value
+lusid_file_system: Optional[List[StrictStr]] = # Replace with your value
+external_calls: Optional[List[StrictStr]] = # Replace with your value
 required_resources_instance = RequiredResources(lusid_apis=lusid_apis, lusid_file_system=lusid_file_system, external_calls=external_calls)
 
 ```

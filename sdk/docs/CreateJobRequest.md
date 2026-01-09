@@ -23,9 +23,11 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.create_job_request import CreateJobRequest
-from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conint, constr, validator
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
+
 job_id: ResourceId = # Replace with your value
 name: StrictStr = "example_name"
 author: Optional[StrictStr] = "example_author"
@@ -33,7 +35,7 @@ date_created: Optional[datetime] = # Replace with your value
 description: StrictStr = "example_description"
 image_name: StrictStr = "example_image_name"
 image_tag: StrictStr = "example_image_tag"
-ttl: Optional[conint(strict=True, le=18000, ge=0)] = Field(None, description="Time To Live of the job run in seconds Defaults to 5 minutes(300)")
+ttl: Optional[StrictInt] = # Replace with your value
 ttl: Optional[StrictInt] = None
 min_cpu: Optional[StrictStr] = "example_min_cpu"
 max_cpu: Optional[StrictStr] = "example_max_cpu"

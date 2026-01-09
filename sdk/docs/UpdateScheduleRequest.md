@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **str** | The updated description of the schedule | 
 **author** | **str** | The updated author of the schedule | [optional] 
 **owner** | **str** | The update owner of the schedule | [optional] 
-**arguments** | **Dict[str, str]** | Updated arguments to be passed to the job Note: The new arguments will completely replace old arguments | [optional] 
+**arguments** | **Dict[str, Optional[str]]** | Updated arguments to be passed to the job Note: The new arguments will completely replace old arguments | [optional] 
 **trigger** | [**Trigger**](Trigger.md) |  | [optional] 
 **notifications** | [**List[Notification]**](Notification.md) | Updated notifications for this schedule | [optional] 
 **enabled** | **bool** | Specify whether schedule is enabled or not Defaults to true | [optional] 
@@ -18,17 +18,19 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.update_schedule_request import UpdateScheduleRequest
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist, constr, validator
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 job_id: ResourceId = # Replace with your value
 name: StrictStr = "example_name"
 description: StrictStr = "example_description"
 author: Optional[StrictStr] = "example_author"
 owner: Optional[StrictStr] = "example_owner"
-arguments: Optional[Dict[str, StrictStr]] = # Replace with your value
+arguments: Optional[Dict[str, Optional[StrictStr]]] = # Replace with your value
 trigger: Optional[Trigger] = None
-notifications: Optional[conlist(Notification)] = # Replace with your value
+notifications: Optional[List[Notification]] = # Replace with your value
 enabled: Optional[StrictBool] = # Replace with your value
 enabled:Optional[StrictBool] = None
 use_as_auth: Optional[StrictStr] = "example_use_as_auth"

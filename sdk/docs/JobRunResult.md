@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **initialised_date** | **datetime** | The date when the job was initialised | [optional] 
 **start_date** | **datetime** | The date when the job started running in Scheduler | [optional] 
 **end_date** | **datetime** | End date of the job Defaults to null if the job has not started or not completed yet If value is null and job has not started, status will be &#x60;Pending&#x60; If value is null and job has not completed, but is running, status will be &#x60;Running&#x60; | [optional] 
-**arguments** | **Dict[str, str]** | All arguments used in in this job run | [optional] 
-**environment_variables** | **Dict[str, str]** | All environment variables used in this job run | [optional] 
+**arguments** | **Dict[str, Optional[str]]** | All arguments used in in this job run | [optional] 
+**environment_variables** | **Dict[str, Optional[str]]** | All environment variables used in this job run | [optional] 
 **job_status** | **str** | Current job status | [optional] 
 **job_result** | **str** | Description of the job result | [optional] [readonly] 
 **description** | **str** | Description of the job | [optional] 
@@ -24,9 +24,11 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.job_run_result import JobRunResult
-from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
+
 console_output_url: Optional[StrictStr] = "example_console_output_url"
 run_id: Optional[StrictStr] = "example_run_id"
 job_id: Optional[ResourceId] = # Replace with your value
@@ -34,8 +36,8 @@ name: Optional[StrictStr] = "example_name"
 initialised_date: Optional[datetime] = # Replace with your value
 start_date: Optional[datetime] = # Replace with your value
 end_date: Optional[datetime] = # Replace with your value
-arguments: Optional[Dict[str, StrictStr]] = # Replace with your value
-environment_variables: Optional[Dict[str, StrictStr]] = # Replace with your value
+arguments: Optional[Dict[str, Optional[StrictStr]]] = # Replace with your value
+environment_variables: Optional[Dict[str, Optional[StrictStr]]] = # Replace with your value
 job_status: Optional[StrictStr] = "example_job_status"
 job_result: Optional[StrictStr] = "example_job_result"
 description: Optional[StrictStr] = "example_description"

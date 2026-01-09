@@ -13,9 +13,11 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.tag import Tag
-from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
+
 name: Optional[StrictStr] = "example_name"
 pull_time: Optional[datetime] = # Replace with your value
 push_time: Optional[datetime] = # Replace with your value

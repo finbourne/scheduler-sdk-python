@@ -11,12 +11,14 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.notification import Notification
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 fire_on: Optional[StrictStr] = "example_fire_on"
 transport: Optional[StrictStr] = "example_transport"
-destination: Optional[conlist(StrictStr)] = # Replace with your value
+destination: Optional[List[StrictStr]] = # Replace with your value
 notification_instance = Notification(fire_on=fire_on, transport=transport, destination=destination)
 
 ```

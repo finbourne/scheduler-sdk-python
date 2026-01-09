@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictInt, StrictStr, conlist 
 from lusid_scheduler.models.link import Link
 
 class Repository(BaseModel):
@@ -27,13 +29,13 @@ class Repository(BaseModel):
     An object representation of a repository  # noqa: E501
     """
     name:  Optional[StrictStr] = Field(None,alias="name", description="The identifier of the repository") 
-    creation_time: Optional[datetime] = Field(None, alias="creationTime", description="Date of  repository creation")
-    last_update: Optional[datetime] = Field(None, alias="lastUpdate", description="The last update of the repository")
+    creation_time: Optional[datetime] = Field(default=None, description="Date of  repository creation", alias="creationTime")
+    last_update: Optional[datetime] = Field(default=None, description="The last update of the repository", alias="lastUpdate")
     description:  Optional[StrictStr] = Field(None,alias="description", description="Description of the repository") 
-    pull_count: Optional[StrictInt] = Field(None, alias="pullCount", description="Number of times images were pulled from this repository")
-    image_count: Optional[StrictInt] = Field(None, alias="imageCount", description="The number of versions of this image")
+    pull_count: Optional[StrictInt] = Field(default=None, description="Number of times images were pulled from this repository", alias="pullCount")
+    image_count: Optional[StrictInt] = Field(default=None, description="The number of versions of this image", alias="imageCount")
     images: Optional[Link] = None
-    links: Optional[conlist(Link)] = None
+    links: Optional[List[Link]] = None
     __properties = ["name", "creationTime", "lastUpdate", "description", "pullCount", "imageCount", "images", "links"]
 
     class Config:
@@ -115,3 +117,5 @@ class Repository(BaseModel):
             "links": [Link.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj
+
+Repository.update_forward_refs()

@@ -19,11 +19,9 @@ import warnings
 from pydantic.v1 import validate_arguments, ValidationError
 from typing import overload, Optional, Union, Awaitable
 
+from pydantic.v1 import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
-from pydantic.v1 import Field, StrictBool, StrictStr, conint, conlist, constr, validator
-
-from typing import Optional
-
 from lusid_scheduler.models.create_schedule_request import CreateScheduleRequest
 from lusid_scheduler.models.resource_list_of_schedule_definition import ResourceListOfScheduleDefinition
 from lusid_scheduler.models.resource_list_of_string import ResourceListOfString
@@ -370,15 +368,15 @@ class SchedulesApi:
 
 
     @overload
-    async def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(..., description="Specify whether to enable or disable the schedule")], **kwargs) -> ScheduleDefinition:  # noqa: E501
+    async def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(description="Specify whether to enable or disable the schedule")], **kwargs) -> ScheduleDefinition:  # noqa: E501
         ...
 
     @overload
-    def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(..., description="Specify whether to enable or disable the schedule")], async_req: Optional[bool]=True, **kwargs) -> ScheduleDefinition:  # noqa: E501
+    def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(description="Specify whether to enable or disable the schedule")], async_req: Optional[bool]=True, **kwargs) -> ScheduleDefinition:  # noqa: E501
         ...
 
     @validate_arguments
-    def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(..., description="Specify whether to enable or disable the schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
+    def enabled_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(description="Specify whether to enable or disable the schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
         """EnabledSchedule: Enable/disable a schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -412,7 +410,7 @@ class SchedulesApi:
         return self.enabled_schedule_with_http_info(scope, code, enable, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def enabled_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(..., description="Specify whether to enable or disable the schedule")], **kwargs) -> ApiResponse:  # noqa: E501
+    def enabled_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be enabled/disabled")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be enabled/disabled")], enable : Annotated[StrictBool, Field(description="Specify whether to enable or disable the schedule")], **kwargs) -> ApiResponse:  # noqa: E501
         """EnabledSchedule: Enable/disable a schedule  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -835,15 +833,15 @@ class SchedulesApi:
 
 
     @overload
-    async def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ResourceListOfScheduleDefinition:  # noqa: E501
+    async def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[List[StrictStr]], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[StrictInt], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[StrictInt], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ResourceListOfScheduleDefinition:  # noqa: E501
         ...
 
     @overload
-    def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=True, **kwargs) -> ResourceListOfScheduleDefinition:  # noqa: E501
+    def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[List[StrictStr]], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[StrictInt], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[StrictInt], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=True, **kwargs) -> ResourceListOfScheduleDefinition:  # noqa: E501
         ...
 
     @validate_arguments
-    def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfScheduleDefinition, Awaitable[ResourceListOfScheduleDefinition]]:  # noqa: E501
+    def list_schedules(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[List[StrictStr]], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[StrictInt], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[StrictInt], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfScheduleDefinition, Awaitable[ResourceListOfScheduleDefinition]]:  # noqa: E501
         """ListSchedules: List the available Schedules  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -881,7 +879,7 @@ class SchedulesApi:
         return self.list_schedules_with_http_info(page, sort_by, start, limit, filter, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def list_schedules_with_http_info(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[conlist(StrictStr)], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[conint(strict=True)], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[conint(strict=True)], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def list_schedules_with_http_info(self, page : Annotated[Optional[StrictStr], Field( description="The pagination token to use to continue listing instruments from a previous call to list instruments.             This value is returned from the previous call. If a pagination token is provided the sortBy and filter fields             must not have changed since the original request. Also, if set, a start value cannot be provided.")] = None, sort_by : Annotated[Optional[List[StrictStr]], Field(description="Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName.")] = None, start : Annotated[Optional[StrictInt], Field(description="When paginating, skip this number of results.")] = None, limit : Annotated[Optional[StrictInt], Field(description="When paginating, limit the number of returned results to this many. Defaults to 2000 if not specified. Maximum is 5000.")] = None, filter : Annotated[Optional[StrictStr], Field( description="Expression to filter the result set.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """ListSchedules: List the available Schedules  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1176,15 +1174,15 @@ class SchedulesApi:
 
 
     @overload
-    async def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(..., description="The updated schedule")], **kwargs) -> ScheduleDefinition:  # noqa: E501
+    async def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(description="The updated schedule")], **kwargs) -> ScheduleDefinition:  # noqa: E501
         ...
 
     @overload
-    def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(..., description="The updated schedule")], async_req: Optional[bool]=True, **kwargs) -> ScheduleDefinition:  # noqa: E501
+    def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(description="The updated schedule")], async_req: Optional[bool]=True, **kwargs) -> ScheduleDefinition:  # noqa: E501
         ...
 
     @validate_arguments
-    def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(..., description="The updated schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
+    def update_schedule(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(description="The updated schedule")], async_req: Optional[bool]=None, **kwargs) -> Union[ScheduleDefinition, Awaitable[ScheduleDefinition]]:  # noqa: E501
         """UpdateSchedule: Update a schedule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1218,7 +1216,7 @@ class SchedulesApi:
         return self.update_schedule_with_http_info(scope, code, update_schedule_request, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(..., description="The updated schedule")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_schedule_with_http_info(self, scope : Annotated[StrictStr, Field(..., description="Scope of the schedule to be updated")], code : Annotated[StrictStr, Field(..., description="Code of the schedule to be updated")], update_schedule_request : Annotated[UpdateScheduleRequest, Field(description="The updated schedule")], **kwargs) -> ApiResponse:  # noqa: E501
         """UpdateSchedule: Update a schedule.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an

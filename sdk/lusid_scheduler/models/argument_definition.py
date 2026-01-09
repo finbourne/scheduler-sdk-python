@@ -18,17 +18,19 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictBool, StrictInt, StrictStr, constr 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 class ArgumentDefinition(BaseModel):
     """
     Job argument definition  # noqa: E501
     """
     data_type:  StrictStr = Field(...,alias="dataType", description="Data type of the argument") 
-    required: Optional[StrictBool] = Field(None, description="Optionality of the argument")
+    required: Optional[StrictBool] = Field(default=None, description="Optionality of the argument")
     description:  StrictStr = Field(...,alias="description", description="Argument description") 
-    order: StrictInt = Field(..., description="The order of the argument")
+    order: StrictInt = Field(description="The order of the argument")
     constraints:  Optional[StrictStr] = Field(None,alias="constraints", description="Constrains of the argument value") 
     passed_as:  StrictStr = Field(...,alias="passedAs", description="Specifies how this argument should be passed in Allowed values are: CommandLine or EnvironmentVariable  Defaults to: CommandLine") 
     default_value:  Optional[StrictStr] = Field(None,alias="defaultValue", description="Specify a default value for this argument if no value is provided The value needs to be convertible to the associated data type") 
@@ -97,3 +99,5 @@ class ArgumentDefinition(BaseModel):
             "default_value": obj.get("defaultValue")
         })
         return _obj
+
+ArgumentDefinition.update_forward_refs()

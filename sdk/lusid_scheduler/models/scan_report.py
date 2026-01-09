@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictInt, StrictStr, conlist 
 from lusid_scheduler.models.scan_summary import ScanSummary
 from lusid_scheduler.models.vulnerability import Vulnerability
 
@@ -29,11 +31,11 @@ class ScanReport(BaseModel):
     """
     severity:  Optional[StrictStr] = Field(None,alias="severity", description="The overall severity. For example : \"High\" or \"None\"") 
     status:  Optional[StrictStr] = Field(None,alias="status", description="The status of the report") 
-    start_time: Optional[datetime] = Field(None, alias="startTime", description="The start time of the scanning process")
-    end_time: Optional[datetime] = Field(None, alias="endTime", description="The end time of the scanning process")
-    scan_duration: Optional[StrictInt] = Field(None, alias="scanDuration", description="The duration of the scan in seconds")
+    start_time: Optional[datetime] = Field(default=None, description="The start time of the scanning process", alias="startTime")
+    end_time: Optional[datetime] = Field(default=None, description="The end time of the scanning process", alias="endTime")
+    scan_duration: Optional[StrictInt] = Field(default=None, description="The duration of the scan in seconds", alias="scanDuration")
     summary: Optional[ScanSummary] = None
-    vulnerabilities: Optional[conlist(Vulnerability)] = Field(None, description="List of Finbourne.Scheduler.WebApi.Dtos.Images.Vulnerability")
+    vulnerabilities: Optional[List[Vulnerability]] = Field(default=None, description="List of Finbourne.Scheduler.WebApi.Dtos.Images.Vulnerability")
     __properties = ["severity", "status", "startTime", "endTime", "scanDuration", "summary", "vulnerabilities"]
 
     class Config:
@@ -129,3 +131,5 @@ class ScanReport(BaseModel):
             "vulnerabilities": [Vulnerability.from_dict(_item) for _item in obj.get("vulnerabilities")] if obj.get("vulnerabilities") is not None else None
         })
         return _obj
+
+ScanReport.update_forward_refs()

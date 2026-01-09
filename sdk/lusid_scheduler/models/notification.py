@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conlist 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 class Notification(BaseModel):
     """
@@ -27,7 +29,7 @@ class Notification(BaseModel):
     """
     fire_on:  Optional[StrictStr] = Field(None,alias="fireOn", description="Condition for the notification") 
     transport:  Optional[StrictStr] = Field(None,alias="transport", description="The type of the notification") 
-    destination: Optional[conlist(StrictStr)] = Field(None, description="Where the notification should be sent")
+    destination: Optional[List[StrictStr]] = Field(default=None, description="Where the notification should be sent")
     __properties = ["fireOn", "transport", "destination"]
 
     class Config:
@@ -95,3 +97,5 @@ class Notification(BaseModel):
             "destination": obj.get("destination")
         })
         return _obj
+
+Notification.update_forward_refs()

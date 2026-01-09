@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictInt, StrictStr, conlist 
 from lusid_scheduler.models.link import Link
 from lusid_scheduler.models.scan_summary import ScanSummary
 from lusid_scheduler.models.tag import Tag
@@ -29,13 +31,13 @@ class ImageSummary(BaseModel):
     Represents the metadata of an image  # noqa: E501
     """
     name:  Optional[StrictStr] = Field(None,alias="name", description="Name of the image") 
-    push_time: Optional[datetime] = Field(None, alias="pushTime", description="The push time of the image")
-    pull_time: Optional[datetime] = Field(None, alias="pullTime", description="The latest pull time of the image")
+    push_time: Optional[datetime] = Field(default=None, description="The push time of the image", alias="pushTime")
+    pull_time: Optional[datetime] = Field(default=None, description="The latest pull time of the image", alias="pullTime")
     digest:  Optional[StrictStr] = Field(None,alias="digest", description="The digest of the image") 
-    size: Optional[StrictInt] = Field(None, description="The size of the image (in bytes)")
-    tags: Optional[conlist(Tag)] = Field(None, description="The tags of the image")
+    size: Optional[StrictInt] = Field(default=None, description="The size of the image (in bytes)")
+    tags: Optional[List[Tag]] = Field(default=None, description="The tags of the image")
     scan_status:  Optional[StrictStr] = Field(None,alias="scanStatus", description="The Scan Status of the stated image") 
-    scan_summary: Optional[ScanSummary] = Field(None, alias="scanSummary")
+    scan_summary: Optional[ScanSummary] = Field(default=None, alias="scanSummary")
     link: Optional[Link] = None
     __properties = ["name", "pushTime", "pullTime", "digest", "size", "tags", "scanStatus", "scanSummary", "link"]
 
@@ -142,3 +144,5 @@ class ImageSummary(BaseModel):
             "link": Link.from_dict(obj.get("link")) if obj.get("link") is not None else None
         })
         return _obj
+
+ImageSummary.update_forward_refs()

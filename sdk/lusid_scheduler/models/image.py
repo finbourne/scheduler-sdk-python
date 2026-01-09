@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictInt, StrictStr, conlist 
 from lusid_scheduler.models.scan_report import ScanReport
 from lusid_scheduler.models.tag import Tag
 
@@ -28,12 +30,12 @@ class Image(BaseModel):
     Represents the metadata of an image  # noqa: E501
     """
     name:  Optional[StrictStr] = Field(None,alias="name", description="Name of the image") 
-    push_time: Optional[datetime] = Field(None, alias="pushTime", description="The push time of the image")
-    pull_time: Optional[datetime] = Field(None, alias="pullTime", description="The latest pull time of the image")
+    push_time: Optional[datetime] = Field(default=None, description="The push time of the image", alias="pushTime")
+    pull_time: Optional[datetime] = Field(default=None, description="The latest pull time of the image", alias="pullTime")
     digest:  Optional[StrictStr] = Field(None,alias="digest", description="The digest of the image") 
-    size: Optional[StrictInt] = Field(None, description="The size of the image (in bytes)")
-    tags: Optional[conlist(Tag)] = Field(None, description="The tags of the image")
-    scan_report: Optional[ScanReport] = Field(None, alias="scanReport")
+    size: Optional[StrictInt] = Field(default=None, description="The size of the image (in bytes)")
+    tags: Optional[List[Tag]] = Field(default=None, description="The tags of the image")
+    scan_report: Optional[ScanReport] = Field(default=None, alias="scanReport")
     __properties = ["name", "pushTime", "pullTime", "digest", "size", "tags", "scanReport"]
 
     class Config:
@@ -129,3 +131,5 @@ class Image(BaseModel):
             "scan_report": ScanReport.from_dict(obj.get("scanReport")) if obj.get("scanReport") is not None else None
         })
         return _obj
+
+Image.update_forward_refs()

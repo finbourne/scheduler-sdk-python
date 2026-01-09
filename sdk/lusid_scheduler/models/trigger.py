@@ -18,15 +18,17 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 from lusid_scheduler.models.time_trigger import TimeTrigger
 
 class Trigger(BaseModel):
     """
     Holds different kinds of triggers A schedule may only have one type of trigger  # noqa: E501
     """
-    time_trigger: Optional[TimeTrigger] = Field(None, alias="timeTrigger")
+    time_trigger: Optional[TimeTrigger] = Field(default=None, alias="timeTrigger")
     __properties = ["timeTrigger"]
 
     class Config:
@@ -79,3 +81,5 @@ class Trigger(BaseModel):
             "time_trigger": TimeTrigger.from_dict(obj.get("timeTrigger")) if obj.get("timeTrigger") is not None else None
         })
         return _obj
+
+Trigger.update_forward_refs()

@@ -18,15 +18,17 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 from lusid_scheduler.models.resource_id import ResourceId
 
 class StartJobResponse(BaseModel):
     """
     Response from starting a job  # noqa: E501
     """
-    job_id: Optional[ResourceId] = Field(None, alias="jobId")
+    job_id: Optional[ResourceId] = Field(default=None, alias="jobId")
     run_id:  Optional[StrictStr] = Field(None,alias="runId", description="Unique RunId of the started job run") 
     status:  Optional[StrictStr] = Field(None,alias="status", description="Link to the status of the started job") 
     result:  Optional[StrictStr] = Field(None,alias="result", description="Link to the result of the job run when completed") 
@@ -100,3 +102,5 @@ class StartJobResponse(BaseModel):
             "result": obj.get("result")
         })
         return _obj
+
+StartJobResponse.update_forward_refs()

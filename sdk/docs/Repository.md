@@ -16,9 +16,11 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_scheduler.models.repository import Repository
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictInt, StrictStr, conlist
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
+
 name: Optional[StrictStr] = "example_name"
 creation_time: Optional[datetime] = # Replace with your value
 last_update: Optional[datetime] = # Replace with your value
@@ -26,7 +28,7 @@ description: Optional[StrictStr] = "example_description"
 pull_count: Optional[StrictInt] = # Replace with your value
 image_count: Optional[StrictInt] = # Replace with your value
 images: Optional[Link] = None
-links: Optional[conlist(Link)] = None
+links: Optional[List[Link]] = None
 repository_instance = Repository(name=name, creation_time=creation_time, last_update=last_update, description=description, pull_count=pull_count, image_count=image_count, images=images, links=links)
 
 ```

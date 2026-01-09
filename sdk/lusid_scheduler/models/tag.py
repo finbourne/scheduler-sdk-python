@@ -17,19 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictBool, StrictStr 
 
 class Tag(BaseModel):
     """
     Represents data of an image's tag  # noqa: E501
     """
     name:  Optional[StrictStr] = Field(None,alias="name", description="The name of the tag") 
-    pull_time: Optional[datetime] = Field(None, alias="pullTime", description="The latest pull time")
-    push_time: Optional[datetime] = Field(None, alias="pushTime", description="The date of the tag's push")
-    signed: Optional[StrictBool] = Field(None, description="Indicates whether the tag is signed")
-    immutable: Optional[StrictBool] = Field(None, description="Indicates whether the tag is immutable")
+    pull_time: Optional[datetime] = Field(default=None, description="The latest pull time", alias="pullTime")
+    push_time: Optional[datetime] = Field(default=None, description="The date of the tag's push", alias="pushTime")
+    signed: Optional[StrictBool] = Field(default=None, description="Indicates whether the tag is signed")
+    immutable: Optional[StrictBool] = Field(default=None, description="Indicates whether the tag is immutable")
     __properties = ["name", "pullTime", "pushTime", "signed", "immutable"]
 
     class Config:
@@ -88,3 +90,5 @@ class Tag(BaseModel):
             "immutable": obj.get("immutable")
         })
         return _obj
+
+Tag.update_forward_refs()

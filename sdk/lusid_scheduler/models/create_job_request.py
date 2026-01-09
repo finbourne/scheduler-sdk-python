@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conint, constr, validator 
 from lusid_scheduler.models.argument_definition import ArgumentDefinition
 from lusid_scheduler.models.required_resources import RequiredResources
 from lusid_scheduler.models.resource_id import ResourceId
@@ -28,21 +30,21 @@ class CreateJobRequest(BaseModel):
     """
     Definition of a job  # noqa: E501
     """
-    job_id: ResourceId = Field(..., alias="jobId")
+    job_id: ResourceId = Field(alias="jobId")
     name:  StrictStr = Field(...,alias="name", description="Name of the job") 
     author:  Optional[StrictStr] = Field(None,alias="author", description="Author of the job") 
-    date_created: Optional[datetime] = Field(None, alias="dateCreated", description="Date when job was created. Defaults to now.")
+    date_created: Optional[datetime] = Field(default=None, description="Date when job was created. Defaults to now.", alias="dateCreated")
     description:  StrictStr = Field(...,alias="description", description="Description of this job") 
     image_name:  StrictStr = Field(...,alias="imageName", description="The name of the Docker image that contains this job") 
     image_tag:  StrictStr = Field(...,alias="imageTag", description="The tag of the Docker image that contains this job") 
-    ttl: Optional[conint(strict=True)] = Field(None, description="Time To Live of the job run in seconds Defaults to 5 minutes(300)")
+    ttl: Optional[StrictInt] = Field(default=None, description="Time To Live of the job run in seconds Defaults to 5 minutes(300)")
     min_cpu:  Optional[StrictStr] = Field(None,alias="minCpu", description="Specifies  minimum number of CPUs to be allocated for the job Default to 2") 
     max_cpu:  Optional[StrictStr] = Field(None,alias="maxCpu", description="Specifies  maximum number of CPUs to be allocated for the job") 
     min_memory:  Optional[StrictStr] = Field(None,alias="minMemory", description="Specifies the minimum amount of memory  to be allocated for the job") 
     max_memory:  Optional[StrictStr] = Field(None,alias="maxMemory", description="Specifies the maximum amount of memory to be allocated for the job") 
-    argument_definitions: Dict[str, ArgumentDefinition] = Field(..., alias="argumentDefinitions", description="All arguments for this job to run")
+    argument_definitions: Dict[str, ArgumentDefinition] = Field(description="All arguments for this job to run", alias="argumentDefinitions")
     command_line_argument_separator:  Optional[StrictStr] = Field(None,alias="commandLineArgumentSeparator", description="Value to separate command line arguments e.g : If a job has a command line argument named 'folder' and the runtime value is 's3://path' then this would be supplied to the command as 'folder{separatorValue}s3://path' Default to a space") 
-    required_resources: Optional[RequiredResources] = Field(None, alias="requiredResources")
+    required_resources: Optional[RequiredResources] = Field(default=None, alias="requiredResources")
     __properties = ["jobId", "name", "author", "dateCreated", "description", "imageName", "imageTag", "ttl", "minCpu", "maxCpu", "minMemory", "maxMemory", "argumentDefinitions", "commandLineArgumentSeparator", "requiredResources"]
 
     class Config:
@@ -154,3 +156,5 @@ class CreateJobRequest(BaseModel):
             "required_resources": RequiredResources.from_dict(obj.get("requiredResources")) if obj.get("requiredResources") is not None else None
         })
         return _obj
+
+CreateJobRequest.update_forward_refs()
