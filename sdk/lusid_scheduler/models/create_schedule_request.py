@@ -40,7 +40,7 @@ class CreateScheduleRequest(BaseModel):
     trigger: Optional[Trigger] = None
     notifications: Optional[List[Notification]] = Field(default=None, description="Notifications for this Schedule")
     enabled: Optional[StrictBool] = Field(default=None, description="Specify whether schedule is enabled or not Defaults to true")
-    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this  user. Can be null, in which case we'll default to that of the user  making this request") 
+    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="ID of user associated with schedule. All calls to FINBOURNE services as part of processing this schedule (such as calls to Config Service) will be authenticated as this  user. Can be null, in which case we'll default to that of the user  making this request. Given the image is a trusted image, we will also supply an FBN_PAT to the environment variables of the image which will hold the System PAT of this UseAsAuth user") 
     __properties = ["scheduleId", "jobId", "name", "description", "author", "owner", "arguments", "trigger", "notifications", "enabled", "useAsAuth"]
 
     class Config:
