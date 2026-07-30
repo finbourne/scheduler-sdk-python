@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arguments** | **Dict[str, Optional[str]]** | All arguments needed for the Job to run | [optional] 
 **notifications** | [**List[Notification]**](Notification.md) | Notifications for this Job | [optional] 
-**use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this  user. Can be null, in which case we&#39;ll default to that of the user  making this request | [optional] 
+**use_as_auth** | **str** | Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this user. Can be null, in which case we&#39;ll default to that of the user making this request | [optional] 
+**run_id** | **str** | Optional pre-generated RunId (Guid format) for this job run. When provided, this is used as the RunId instead of generating a new one, allowing the caller to pre-generate and track the run before it starts. | [optional] 
 ## Example
 
 ```python
@@ -19,7 +20,8 @@ from datetime import datetime
 arguments: Optional[Dict[str, Optional[StrictStr]]] = # Replace with your value
 notifications: Optional[List[Notification]] = # Replace with your value
 use_as_auth: Optional[StrictStr] = "example_use_as_auth"
-start_job_request_instance = StartJobRequest(arguments=arguments, notifications=notifications, use_as_auth=use_as_auth)
+run_id: Optional[StrictStr] = "example_run_id"
+start_job_request_instance = StartJobRequest(arguments=arguments, notifications=notifications, use_as_auth=use_as_auth, run_id=run_id)
 
 ```
 

@@ -30,8 +30,9 @@ class StartJobRequest(BaseModel):
     """
     arguments: Optional[Dict[str, Optional[StrictStr]]] = Field(default=None, description="All arguments needed for the Job to run")
     notifications: Optional[List[Notification]] = Field(default=None, description="Notifications for this Job")
-    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this  user. Can be null, in which case we'll default to that of the user  making this request") 
-    __properties = ["arguments", "notifications", "useAsAuth"]
+    use_as_auth:  Optional[StrictStr] = Field(None,alias="useAsAuth", description="Id of user associated with schedule. All calls to FINBOURNE services as part of execution of this schedule will be authenticated as this user. Can be null, in which case we'll default to that of the user making this request") 
+    run_id:  Optional[StrictStr] = Field(None,alias="runId", description="Optional pre-generated RunId (Guid format) for this job run. When provided, this is used as the RunId instead of generating a new one, allowing the caller to pre-generate and track the run before it starts.") 
+    __properties = ["arguments", "notifications", "useAsAuth", "runId"]
 
     class Config:
         """Pydantic configuration"""
@@ -87,6 +88,11 @@ class StartJobRequest(BaseModel):
         if self.use_as_auth is None and "use_as_auth" in self.__fields_set__:
             _dict['useAsAuth'] = None
 
+        # set to None if run_id (nullable) is None
+        # and __fields_set__ contains the field
+        if self.run_id is None and "run_id" in self.__fields_set__:
+            _dict['runId'] = None
+
         return _dict
 
     @classmethod
@@ -101,7 +107,8 @@ class StartJobRequest(BaseModel):
         _obj = StartJobRequest.parse_obj({
             "arguments": obj.get("arguments"),
             "notifications": [Notification.from_dict(_item) for _item in obj.get("notifications")] if obj.get("notifications") is not None else None,
-            "use_as_auth": obj.get("useAsAuth")
+            "use_as_auth": obj.get("useAsAuth"),
+            "run_id": obj.get("runId")
         })
         return _obj
 
