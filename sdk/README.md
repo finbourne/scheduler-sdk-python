@@ -6,6 +6,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/scheduler2*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApplicationMetadataApi* | [**list_access_controlled_resources**](docs/ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
+*ApplicationMetadataApi* | [**list_api_endpoints**](docs/ApplicationMetadataApi.md#list_api_endpoints) | **GET** /api/metadata/endpoints | ListApiEndpoints: Get the API endpoints available
 *ImagesApi* | [**get_image**](docs/ImagesApi.md#get_image) | **GET** /api/images/{name} | GetImage: Get metadata of a Docker Image
 *ImagesApi* | [**list_images**](docs/ImagesApi.md#list_images) | **GET** /api/images/repository/{name} | ListImages: List all images under same image repository
 *ImagesApi* | [**list_repositories**](docs/ImagesApi.md#list_repositories) | **GET** /api/images/repository | ListRepositories: List all Docker image repositories
@@ -35,6 +36,7 @@ Class | Method | HTTP request | Description
  - [AccessControlledAction](docs/AccessControlledAction.md)
  - [AccessControlledResource](docs/AccessControlledResource.md)
  - [ActionId](docs/ActionId.md)
+ - [ApiEndpoint](docs/ApiEndpoint.md)
  - [ArgumentDefinition](docs/ArgumentDefinition.md)
  - [CreateJobRequest](docs/CreateJobRequest.md)
  - [CreateScheduleRequest](docs/CreateScheduleRequest.md)
@@ -62,6 +64,7 @@ Class | Method | HTTP request | Description
  - [ScanReport](docs/ScanReport.md)
  - [ScanSummary](docs/ScanSummary.md)
  - [ScheduleDefinition](docs/ScheduleDefinition.md)
+ - [ServiceApiEndpoints](docs/ServiceApiEndpoints.md)
  - [StartJobRequest](docs/StartJobRequest.md)
  - [StartJobResponse](docs/StartJobResponse.md)
  - [StartScheduleResponse](docs/StartScheduleResponse.md)

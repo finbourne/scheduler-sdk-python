@@ -34,6 +34,7 @@ from lusid_scheduler.exceptions import ApiException
 from lusid_scheduler.models.access_controlled_action import AccessControlledAction
 from lusid_scheduler.models.access_controlled_resource import AccessControlledResource
 from lusid_scheduler.models.action_id import ActionId
+from lusid_scheduler.models.api_endpoint import ApiEndpoint
 from lusid_scheduler.models.argument_definition import ArgumentDefinition
 from lusid_scheduler.models.create_job_request import CreateJobRequest
 from lusid_scheduler.models.create_schedule_request import CreateScheduleRequest
@@ -61,6 +62,7 @@ from lusid_scheduler.models.resource_list_of_string import ResourceListOfString
 from lusid_scheduler.models.scan_report import ScanReport
 from lusid_scheduler.models.scan_summary import ScanSummary
 from lusid_scheduler.models.schedule_definition import ScheduleDefinition
+from lusid_scheduler.models.service_api_endpoints import ServiceApiEndpoints
 from lusid_scheduler.models.start_job_request import StartJobRequest
 from lusid_scheduler.models.start_job_response import StartJobResponse
 from lusid_scheduler.models.start_schedule_response import StartScheduleResponse
@@ -94,6 +96,7 @@ __all__ = [
     "AccessControlledAction",
     "AccessControlledResource",
     "ActionId",
+    "ApiEndpoint",
     "ArgumentDefinition",
     "CreateJobRequest",
     "CreateScheduleRequest",
@@ -121,6 +124,7 @@ __all__ = [
     "ScanReport",
     "ScanSummary",
     "ScheduleDefinition",
+    "ServiceApiEndpoints",
     "StartJobRequest",
     "StartJobResponse",
     "StartScheduleResponse",
